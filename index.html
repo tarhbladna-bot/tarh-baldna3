@@ -1,160 +1,159 @@
+
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>طرح بلدنا للمحاصيل الزراعية</title>
-  <meta name="description" content="شركة طرح بلدنا للمحاصيل الزراعية - فول سوداني جملة وقطاعي، توريد داخل مصر ومتاح التصدير.">
   <style>
-    :root {
-      --brand: #146356; /* أخضر موثوق */
-      --accent: #f0a500; /* ذهبي للتمييز */
-      --bg: #fff;
-      --text: #1b1b1b;
-      --muted: #6b7280;
-      --card: #f8fafc;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; font-family: system-ui, "Noto Naskh Arabic", "Segoe UI", Tahoma, sans-serif;
-      background: var(--bg); color: var(--text); line-height: 1.7;
-    }
-    .topbar {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 12px 16px; border-bottom: 1px solid #e5e7eb; background: #ffffffcc;
-      backdrop-filter: saturate(180%) blur(6px); position: sticky; top: 0; z-index: 10;
-    }
-    .brand { display: flex; flex-direction: column; }
-    .brand .title { font-weight: 700; color: var(--brand); font-size: 18px; }
-    .brand .subtitle { font-size: 12px; color: var(--muted); }
-    nav { display: flex; gap: 12px; flex-wrap: wrap; }
-    nav a {
-      text-decoration: none; color: var(--text); font-weight: 600; padding: 8px 10px; border-radius: 8px;
-    }
-    nav a:hover { background: var(--card); }
-
-    .hero {
-      padding: 28px 16px; max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr; gap: 16px;
-    }
-    .hero-card {
-      background: var(--card); border: 1px solid #e5e7eb; border-radius: 14px; padding: 18px;
-    }
-    .hero h1 { margin: 0 0 8px; font-size: 24px; }
-    .hero .lead { color: var(--muted); margin-bottom: 10px; }
-    .hero .meta { display: grid; gap: 6px; margin: 10px 0; }
-    .badge {
-      display: inline-block; background: #e7f3ef; color: var(--brand); padding: 6px 10px; border-radius: 999px; font-weight: 700; font-size: 13px;
-    }
-
-    .features {
-      display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr);
-      padding: 8px 0;
-    }
-    .feature {
-      background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 12px;
-    }
-    .feature h3 { margin: 0 0 6px; font-size: 16px; color: var(--brand); }
-    .feature p { margin: 0; color: var(--muted); font-size: 14px; }
-
-    .cta {
-      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
-    }
-    .btn {
-      border: none; cursor: pointer; padding: 10px 14px; border-radius: 10px; font-weight: 700; font-size: 14px;
-    }
-    .btn-primary { background: var(--brand); color: #fff; }
-    .btn-outline { background: transparent; color: var(--brand); border: 2px solid var(--brand); }
-
-    .contact {
-      margin-top: 14px; color: var(--text); font-size: 14px;
-    }
-    .contact a { color: var(--brand); text-decoration: none; font-weight: 700; }
-
-    footer {
-      margin-top: 28px; padding: 16px; text-align: center; color: var(--muted); font-size: 13px;
-    }
-    @media (min-width: 768px) {
-      .hero { grid-template-columns: 1.2fr 0.8fr; }
-      .features { grid-template-columns: repeat(4, 1fr); }
-      .hero h1 { font-size: 28px; }
-    }
+    body {font-family:"Noto Naskh Arabic",sans-serif; margin:0; background:#1b1b1b; color:#f0f0f0;}
+    header {background:#146356; color:#fff; padding:15px; text-align:center;}
+    nav a {color:#fff; margin:0 10px; text-decoration:none; font-weight:bold;}
+    section {padding:30px; max-width:900px; margin:auto;}
+    h2 {color:#fff;}
+    .btn {display:inline-block; padding:12px 18px; margin:10px; border-radius:10px; text-decoration:none; font-weight:bold;}
+    .btn-primary {background:#146356; color:#fff;}
+    .btn-outline {border:2px solid #146356; color:#146356; background:transparent;}
+    .products {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;}
+    .card {background:#2a2a2a; border:1px solid #444; border-radius:10px; padding:15px;}
+    .card h3 {margin-top:0; color:#146356;}
+    footer {background:#2a2a2a; text-align:center; padding:15px; margin-top:20px; color:#aaa;}
+    input, textarea {width:100%; padding:10px; margin:5px 0; border-radius:8px; border:1px solid #444; background:#1b1b1b; color:#f0f0f0;}
   </style>
 </head>
 <body>
-  <header class="topbar" role="banner" aria-label="التنقل الرئيسي">
-    <div class="brand">
-      <span class="title">طرح بلدنا</span>
-      <span class="subtitle">للمحاصيل الزراعية</span>
-    </div>
-    <nav aria-label="روابط">
+  <header>
+    <h1>طرح بلدنا</h1>
+    <p>للمحاصيل الزراعية</p>
+    <nav>
       <a href="#products">المنتجات</a>
       <a href="#cart">السلة</a>
+      <a href="#checkout">إتمام الطلب</a>
       <a href="#about">عن الشركة</a>
       <a href="#contact">تواصل</a>
-      <a href="#checkout">إتمام الطلب</a>
     </nav>
   </header>
 
-  <main class="hero">
-    <section class="hero-card" id="products">
-      <h1>فول سوداني — جملة وقطاعي</h1>
-      <p class="lead">شركة طرح بلدنا للمحاصيل الزراعية</p>
+  <!-- الرئيسية -->
+  <section class="hero">
+    <h2>فول سوداني — جملة وقطاعي</h2>
+    <p>شركة طرح بلدنا للمحاصيل الزراعية — أبو رواش، الجيزة، مصر</p>
+    <p>نوفر فول سوداني مقشر وبقشرة ومفروم ومجروش، ني ومحمص.</p>
+    <p>💵 السعر: عند الطلب — الدفع: كاش عند الاستلام</p>
+    <p>🚚 توريد داخل مصر 🌍 متاح التصدير خارج مصر حسب الكميات</p>
+    <a class="btn btn-primary" href="https://wa.me/201020508423" target="_blank">طلب عبر واتساب</a>
+  </section>
 
-      <div class="meta">
-        <span>أبو رواش - الجيزة - مصر.</span>
-        <span>نوفر فول سوداني <strong>مقشر</strong> و<strong>بقشرة</strong> و<strong>مفروم</strong> و<strong>مجروش</strong>، <strong>ني</strong> و<strong>محمص</strong>.</span>
-        <span>السعر: <strong>عند الطلب</strong> — الدفع: <strong>كاش عند الاستلام</strong></span>
-        <span class="badge">توريد داخل مصر 🌍 — متاح التصدير خارج مصر حسب الكميات</span>
-      </div>
+  <!-- المنتجات -->
+  <section id="products" class="products">
+    <div class="card">
+      <h3>فول سوداني مقشر</h3>
+      <p>متاح ني ومحمص — أحجام مختلفة.</p>
+      <a class="btn btn-primary" href="#" onclick="addToCart('فول سوداني مقشر')">أضف للسلة</a>
+    </div>
+    <div class="card">
+      <h3>فول سوداني بقشرة</h3>
+      <p>متاح ني ومحمص — توريد للمحلات والمصانع.</p>
+      <a class="btn btn-primary" href="#" onclick="addToCart('فول سوداني بقشرة')">أضف للسلة</a>
+    </div>
+    <div class="card">
+      <h3>فول سوداني مفروم</h3>
+      <p>مناسب للمصانع والمخابز — تجهيزات حسب الطلب.</p>
+      <a class="btn btn-primary" href="#" onclick="addToCart('فول سوداني مفروم')">أضف للسلة</a>
+    </div>
+    <div class="card">
+      <h3>فول سوداني مجروش</h3>
+      <p>للاستخدامات الصناعية والتصدير — متاح بكميات كبيرة.</p>
+      <a class="btn btn-primary" href="#" onclick="addToCart('فول سوداني مجروش')">أضف للسلة</a>
+    </div>
+  </section>
 
-      <div class="features" aria-label="مزايا الخدمة">
-        <div class="feature">
-          <h3>توريد للمحلات والمصانع</h3>
-          <p>توريد منتظم بكميات مختلفة وفق الاحتياج.</p>
-        </div>
-        <div class="feature">
-          <h3>تجهيزات حسب الطلب</h3>
-          <p>تعبئة وأحجام متنوعة وفق المواصفات.</p>
-        </div>
-        <div class="feature">
-          <h3>تصدير</h3>
-          <p>التزام باشتراطات الجودة والشحن.</p>
-        </div>
-        <div class="feature">
-          <h3>واتساب</h3>
-          <p>رد فوري على الاستفسارات والطلبات.</p>
-        </div>
-      </div>
+  <!-- السلة -->
+  <section id="cart">
+    <h2>سلة الطلبات</h2>
+    <ul id="cartList"></ul>
+    <a class="btn btn-primary" href="#checkout">إتمام الطلب</a>
+    <a class="btn btn-outline" href="#" onclick="sendCartToWhatsApp()">إرسال عبر واتساب</a>
+  </section>
 
-      <div class="cta">
-        <a class="btn btn-primary" href="https://wa.me/201126773698" target="_blank" rel="noopener">طلب عبر واتساب</a>
-        <a class="btn btn-outline" href="#contact">اتصل بنا</a>
-      </div>
+  <!-- إتمام الطلب -->
+  <section id="checkout">
+    <h2>إتمام الطلب</h2>
+    <form id="orderForm">
+      <label>الاسم الكامل</label>
+      <input type="text" id="name" required>
+      <label>العنوان</label>
+      <textarea id="address" required></textarea>
+      <label>رقم الهاتف</label>
+      <input type="tel" id="phone" required>
+      <label>ملاحظات</label>
+      <textarea id="notes"></textarea>
+      <a class="btn btn-primary" href="#" onclick="sendOrder()">إرسال عبر واتساب</a>
+    </form>
+  </section>
 
-      <div class="contact" id="contact">
-        <span>هاتف: <a href="tel:01126773698">01126773698</a> — <a href="tel:01020508423">01020508423</a></span>
-      </div>
-    </section>
+  <!-- عن الشركة -->
+  <section id="about">
+    <h2>عن الشركة</h2>
+    <p>تأسست شركة طرح بلدنا في أبو رواش – الجيزة – مصر، لتكون رائدة في مجال المحاصيل الزراعية،
+    مع تركيز خاص على توريد الفول السوداني بجميع أنواعه. نلتزم بتقديم منتجات عالية الجودة للسوق المحلي والتصدير.</p>
+  </section>
 
-    <aside class="hero-card" id="about">
-      <h2 style="margin-top:0">عن الشركة</h2>
-      <p>طرح بلدنا — نختص بالمحاصيل الزراعية وتوريد الفول السوداني بجودة موثوقة للمحلات والمصانع داخل مصر، مع إمكانية التصدير حسب الكميات.</p>
-
-      <section id="cart">
-        <h3>السلة</h3>
-        <p>راجع المنتجات والكميات قبل إتمام الطلب. (يمكن تحويلها لاحقًا لنظام سلة فعلي)</p>
-      </section>
-
-      <section id="checkout">
-        <h3>إتمام الطلب</h3>
-        <p>يرجى إرسال الاسم، العنوان، الكمية وطريقة التواصل عبر الواتساب أو الاتصال المباشر.</p>
-      </section>
-    </aside>
-  </main>
+  <!-- تواصل -->
+  <section id="contact">
+    <h2>تواصل معنا</h2>
+    <p>📞 هاتف: 01126773698 — 01020508423</p>
+    <p>💬 واتساب مباشر: <a class="btn btn-primary" href="https://wa.me/201020508423" target="_blank">اضغط هنا</a></p>
+  </section>
 
   <footer>
     © طرح بلدنا للمحاصيل الزراعية — أبو رواش، الجيزة — مصر
   </footer>
+
+  <script>
+    let cart = [];
+
+    function addToCart(productName) {
+      cart.push(productName);
+      localStorage.setItem('cartItems', JSON.stringify(cart));
+      alert(`تمت إضافة ${productName} إلى السلة`);
+      displayCart();
+    }
+
+    function displayCart() {
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      const cartList = document.getElementById('cartList');
+      cartList.innerHTML = "";
+      if (cartItems.length === 0) {
+        cartList.innerHTML = "<p>السلة فارغة.</p>";
+      } else {
+        cartItems.forEach(item => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          cartList.appendChild(li);
+        });
+      }
+    }
+
+    function sendCartToWhatsApp() {
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      const message = `طلب جديد:%0A${cartItems.map(i => '- ' + i).join('%0A')}`;
+      window.open(`https://wa.me/201020508423?text=${message}`, '_blank');
+    }
+
+    function sendOrder() {
+      const name = document.getElementById('name').value;
+      const address = document.getElementById('address').value;
+      const phone = document.getElementById('phone').value;
+      const notes = document.getElementById('notes').value;
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+      const message = `طلب جديد:%0Aالاسم: ${name}%0Aالعنوان: ${address}%0Aالهاتف: ${phone}%0Aالمنتجات:%0A${cartItems.map(i => '- ' + i).join('%0A')}%0Aملاحظات: ${notes}`;
+      window.open(`https://wa.me/201020508423?text=${message}`, '_blank');
+    }
+
+    // عرض السلة عند تحميل الصفحة
+    displayCart();
+  </script>
 </body>
 </html>
