@@ -6,8 +6,8 @@
   <title>طرح بلدنا للمحاصيل الزراعية</title>
   <style>
     body {font-family:"Noto Naskh Arabic",sans-serif; margin:0; background:#1b1b1b; color:#f0f0f0;}
-    header {background:#146356; color:#fff; padding:15px; text-align:center;}
-    nav a {color:#fff; margin:0 10px; text-decoration:none; font-weight:bold;}
+    header {background:#146356; padding:0;}
+    nav a {color:#fff; margin:5px 10px; text-decoration:none; font-weight:bold;}
     section {padding:30px; max-width:1000px; margin:auto;}
     h2 {color:#fff;}
     .btn {display:inline-block; padding:12px 18px; margin:10px; border-radius:10px; text-decoration:none; font-weight:bold;}
@@ -23,9 +23,11 @@
 </head>
 <body>
   <header>
-    <h1>طرح بلدنا</h1>
-    <p>للمحاصيل الزراعية</p>
-    <nav>
+    <div style="text-align:center; padding:20px 10px;">
+      <h1 style="margin:0; font-size:28px; color:#fff;">طرح بلدنا</h1>
+      <p style="margin:5px 0; color:#e0e0e0;">للمحاصيل الزراعية</p>
+    </div>
+    <nav style="background:#104f45; display:flex; justify-content:center; flex-wrap:wrap; padding:10px;">
       <a href="#products">المنتجات</a>
       <a href="#cart">السلة</a>
       <a href="#checkout">إتمام الطلب</a>
@@ -34,7 +36,6 @@
     </nav>
   </header>
 
-  <!-- الرئيسية -->
   <section class="hero">
     <h2>فول سوداني — جملة وقطاعي</h2>
     <p>شركة طرح بلدنا للمحاصيل الزراعية — أبو رواش، الجيزة، مصر</p>
@@ -46,49 +47,7 @@
 
   <!-- المنتجات -->
   <section id="products" class="products">
-    <div class="card">
-      <img src="images/foal-bqshra.jpg" alt="فول بقشره">
-      <h3>فول سوداني بقشره</h3>
-      <p>ني ومحمص — توريد للمحلات والمصانع</p>
-      <label>الكمية المطلوبة (كجم):</label>
-      <input type="number" id="qty-bqshra" min="1">
-      <p>💵 السعر: عند الطلب</p>
-      <a class="btn btn-primary" href="#" onclick="addToCart('فول بقشره', document.getElementById('qty-bqshra').value)">أضف للسلة</a>
-      <a class="btn btn-outline" href="#" onclick="sendDirectWhatsApp('فول بقشره', document.getElementById('qty-bqshra').value)">طلب عبر واتساب</a>
-    </div>
-
-    <div class="card">
-      <img src="images/foal-mqshar.jpg" alt="فول مقشر">
-      <h3>فول سوداني مقشر</h3>
-      <p>ني ومحمص — أحجام مختلفة</p>
-      <label>الكمية المطلوبة (كجم):</label>
-      <input type="number" id="qty-mqshar" min="1">
-      <p>💵 السعر: عند الطلب</p>
-      <a class="btn btn-primary" href="#" onclick="addToCart('فول مقشر', document.getElementById('qty-mqshar').value)">أضف للسلة</a>
-      <a class="btn btn-outline" href="#" onclick="sendDirectWhatsApp('فول مقشر', document.getElementById('qty-mqshar').value)">طلب عبر واتساب</a>
-    </div>
-
-    <div class="card">
-      <img src="images/foal-mfrwk.jpg" alt="فول مفروك">
-      <h3>فول سوداني مفروك</h3>
-      <p>ني ومحمص — مناسب للمصانع والمخابز</p>
-      <label>الكمية المطلوبة (كجم):</label>
-      <input type="number" id="qty-mfrwk" min="1">
-      <p>💵 السعر: عند الطلب</p>
-      <a class="btn btn-primary" href="#" onclick="addToCart('فول مفروك', document.getElementById('qty-mfrwk').value)">أضف للسلة</a>
-      <a class="btn btn-outline" href="#" onclick="sendDirectWhatsApp('فول مفروك', document.getElementById('qty-mfrwk').value)">طلب عبر واتساب</a>
-    </div>
-
-    <div class="card">
-      <img src="images/foal-mgrosh.jpg" alt="فول مجروش">
-      <h3>فول سوداني مجروش</h3>
-      <p>ني ومحمص — للتصدير والاستخدامات الصناعية</p>
-      <label>الكمية المطلوبة (كجم):</label>
-      <input type="number" id="qty-mgrosh" min="1">
-      <p>💵 السعر: عند الطلب</p>
-      <a class="btn btn-primary" href="#" onclick="addToCart('فول مجروش', document.getElementById('qty-mgrosh').value)">أضف للسلة</a>
-      <a class="btn btn-outline" href="#" onclick="sendDirectWhatsApp('فول مجروش', document.getElementById('qty-mgrosh').value)">طلب عبر واتساب</a>
-    </div>
+    <!-- هنا تضيف الكروت (بقشره، مقشر، مفروك، مجروش) -->
   </section>
 
   <!-- السلة -->
@@ -125,4 +84,76 @@
   <!-- تواصل -->
   <section id="contact">
     <h2>تواصل معنا</h2>
-    <p>📞 هاتف:
+    <p>📞 هاتف: 01126773698 — 01020508423</p>
+    <p>💬 واتساب مباشر: <a class="btn btn-primary" href="https://wa.me/201020508423" target="_blank">اضغط هنا</a></p>
+  </section>
+
+  <footer>
+    © طرح بلدنا للمحاصيل الزراعية — أبو رواش، الجيزة — مصر
+  </footer>
+
+  <script>
+    let cart = [];
+
+    function addToCart(productName, quantity) {
+      if (!quantity || quantity <= 0) {
+        alert("من فضلك أدخل الكمية المطلوبة");
+        return;
+      }
+      const item = `${productName} — كمية: ${quantity} كجم — السعر: عند الطلب`;
+      cart.push(item);
+      localStorage.setItem('cartItems', JSON.stringify(cart));
+      alert(`تمت إضافة ${item} إلى السلة`);
+      displayCart();
+    }
+
+    function displayCart() {
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      const cartList = document.getElementById('cartList');
+      if (!cartList) return;
+      cartList.innerHTML = "";
+      if (cartItems.length === 0) {
+        cartList.innerHTML = "<p>السلة فارغة.</p>";
+      } else {
+        cartItems.forEach(item => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          cartList.appendChild(li);
+        });
+      }
+    }
+
+    function sendCartToWhatsApp() {
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      if (cartItems.length === 0) {
+        alert("السلة فارغة");
+        return;
+      }
+      const message = `طلب جديد:%0A${cartItems.map(i => '- ' + i).join('%0A')}`;
+      window.open(`https://wa.me/201020508423?text=${message}`, '_blank');
+    }
+
+    function sendDirectWhatsApp(productName, quantity) {
+      if (!quantity || quantity <= 0) {
+        alert("من فضلك أدخل الكمية المطلوبة");
+        return;
+      }
+      const message = `طلب مباشر:%0A${productName}%0Aكمية: ${quantity} كجم%0Aالسعر: عند الطلب`;
+      window.open(`https://wa.me/201020508423?text=${message}`, '_blank');
+    }
+
+    function sendOrder() {
+      const name = document.getElementById('name').value;
+      const address = document.getElementById('address').value;
+      const phone = document.getElementById('phone').value;
+      const notes = document.getElementById('notes').value;
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+      const message = `طلب جديد:%0Aالاسم: ${name}%0Aالعنوان: ${address}%0Aالهاتف: ${phone}%0Aالمنتجات:%0A${cartItems.map(i => '- ' + i).join('%0A')}%0Aملاحظات: ${notes}`;
+      window.open(`https://wa.me/201020508423?text=${message}`, '_blank');
+    }
+
+    displayCart();
+  </script>
+</body>
+</html>
