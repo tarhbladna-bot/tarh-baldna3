@@ -1,48 +1,160 @@
-<!DOCTYPE html>
-<html lang="ar">
+<!doctype html>
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>طرح بلدنا - متجر بالجملة</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>طرح بلدنا للمحاصيل الزراعية</title>
+  <meta name="description" content="شركة طرح بلدنا للمحاصيل الزراعية - فول سوداني جملة وقطاعي، توريد داخل مصر ومتاح التصدير.">
+  <style>
+    :root {
+      --brand: #146356; /* أخضر موثوق */
+      --accent: #f0a500; /* ذهبي للتمييز */
+      --bg: #fff;
+      --text: #1b1b1b;
+      --muted: #6b7280;
+      --card: #f8fafc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: system-ui, "Noto Naskh Arabic", "Segoe UI", Tahoma, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.7;
+    }
+    .topbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 16px; border-bottom: 1px solid #e5e7eb; background: #ffffffcc;
+      backdrop-filter: saturate(180%) blur(6px); position: sticky; top: 0; z-index: 10;
+    }
+    .brand { display: flex; flex-direction: column; }
+    .brand .title { font-weight: 700; color: var(--brand); font-size: 18px; }
+    .brand .subtitle { font-size: 12px; color: var(--muted); }
+    nav { display: flex; gap: 12px; flex-wrap: wrap; }
+    nav a {
+      text-decoration: none; color: var(--text); font-weight: 600; padding: 8px 10px; border-radius: 8px;
+    }
+    nav a:hover { background: var(--card); }
+
+    .hero {
+      padding: 28px 16px; max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr; gap: 16px;
+    }
+    .hero-card {
+      background: var(--card); border: 1px solid #e5e7eb; border-radius: 14px; padding: 18px;
+    }
+    .hero h1 { margin: 0 0 8px; font-size: 24px; }
+    .hero .lead { color: var(--muted); margin-bottom: 10px; }
+    .hero .meta { display: grid; gap: 6px; margin: 10px 0; }
+    .badge {
+      display: inline-block; background: #e7f3ef; color: var(--brand); padding: 6px 10px; border-radius: 999px; font-weight: 700; font-size: 13px;
+    }
+
+    .features {
+      display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr);
+      padding: 8px 0;
+    }
+    .feature {
+      background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 12px;
+    }
+    .feature h3 { margin: 0 0 6px; font-size: 16px; color: var(--brand); }
+    .feature p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .cta {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
+    }
+    .btn {
+      border: none; cursor: pointer; padding: 10px 14px; border-radius: 10px; font-weight: 700; font-size: 14px;
+    }
+    .btn-primary { background: var(--brand); color: #fff; }
+    .btn-outline { background: transparent; color: var(--brand); border: 2px solid var(--brand); }
+
+    .contact {
+      margin-top: 14px; color: var(--text); font-size: 14px;
+    }
+    .contact a { color: var(--brand); text-decoration: none; font-weight: 700; }
+
+    footer {
+      margin-top: 28px; padding: 16px; text-align: center; color: var(--muted); font-size: 13px;
+    }
+    @media (min-width: 768px) {
+      .hero { grid-template-columns: 1.2fr 0.8fr; }
+      .features { grid-template-columns: repeat(4, 1fr); }
+      .hero h1 { font-size: 28px; }
+    }
+  </style>
 </head>
 <body>
+  <header class="topbar" role="banner" aria-label="التنقل الرئيسي">
+    <div class="brand">
+      <span class="title">طرح بلدنا</span>
+      <span class="subtitle">للمحاصيل الزراعية</span>
+    </div>
+    <nav aria-label="روابط">
+      <a href="#products">المنتجات</a>
+      <a href="#cart">السلة</a>
+      <a href="#about">عن الشركة</a>
+      <a href="#contact">تواصل</a>
+      <a href="#checkout">إتمام الطلب</a>
+    </nav>
+  </header>
 
-<header>
-  <h1>شركة طرح بلدنا للمحاصيل الزراعية</h1>
-  <p>لطلب المنتجات بالجملة فقط</p>
-</header>
+  <main class="hero">
+    <section class="hero-card" id="products">
+      <h1>فول سوداني — جملة وقطاعي</h1>
+      <p class="lead">شركة طرح بلدنا للمحاصيل الزراعية</p>
 
-<main class="container">
+      <div class="meta">
+        <span>أبو رواش - الجيزة - مصر.</span>
+        <span>نوفر فول سوداني <strong>مقشر</strong> و<strong>بقشرة</strong> و<strong>مفروم</strong> و<strong>مجروش</strong>، <strong>ني</strong> و<strong>محمص</strong>.</span>
+        <span>السعر: <strong>عند الطلب</strong> — الدفع: <strong>كاش عند الاستلام</strong></span>
+        <span class="badge">توريد داخل مصر 🌍 — متاح التصدير خارج مصر حسب الكميات</span>
+      </div>
 
-  <div class="product">
-    <img src="images/product1.jpg" alt="فول سوداني ني">
-    <h2>فول سوداني مقشر (ني)</h2>
-    <p>توريد للتجار والمحلات حسب الكميات.</p>
-    <button onclick="orderWhatsApp('فول سوداني مقشر (ني)')">اطلب بالجملة</button>
-  </div>
+      <div class="features" aria-label="مزايا الخدمة">
+        <div class="feature">
+          <h3>توريد للمحلات والمصانع</h3>
+          <p>توريد منتظم بكميات مختلفة وفق الاحتياج.</p>
+        </div>
+        <div class="feature">
+          <h3>تجهيزات حسب الطلب</h3>
+          <p>تعبئة وأحجام متنوعة وفق المواصفات.</p>
+        </div>
+        <div class="feature">
+          <h3>تصدير</h3>
+          <p>التزام باشتراطات الجودة والشحن.</p>
+        </div>
+        <div class="feature">
+          <h3>واتساب</h3>
+          <p>رد فوري على الاستفسارات والطلبات.</p>
+        </div>
+      </div>
 
-  <div class="product">
-    <img src="images/product2.jpg" alt="فول سوداني محمص">
-    <h2>فول سوداني مقشر (محمص)</h2>
-    <p>مناسب لتسالي وتجزئة.</p>
-    <button onclick="orderWhatsApp('فول سوداني مقشر (محمص)')">اطلب بالجملة</button>
-  </div>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://wa.me/201126773698" target="_blank" rel="noopener">طلب عبر واتساب</a>
+        <a class="btn btn-outline" href="#contact">اتصل بنا</a>
+      </div>
 
-  <div class="product">
-    <img src="images/product3.jpg" alt="فول سوداني مع ملح">
-    <h2>فول سوداني مع ملح</h2>
-    <p>جودة ممتازة ومعبأ بعناية.</p>
-    <button onclick="orderWhatsApp('فول سوداني مع ملح')">اطلب بالجملة</button>
-  </div>
+      <div class="contact" id="contact">
+        <span>هاتف: <a href="tel:01126773698">01126773698</a> — <a href="tel:01020508423">01020508423</a></span>
+      </div>
+    </section>
 
-</main>
+    <aside class="hero-card" id="about">
+      <h2 style="margin-top:0">عن الشركة</h2>
+      <p>طرح بلدنا — نختص بالمحاصيل الزراعية وتوريد الفول السوداني بجودة موثوقة للمحلات والمصانع داخل مصر، مع إمكانية التصدير حسب الكميات.</p>
 
-<footer>
-  <p>اتصل بنا على واتساب: 01126773698 - 01020508423</p>
-  <p>&copy; 2026 طرح بلدنا</p>
-</footer>
+      <section id="cart">
+        <h3>السلة</h3>
+        <p>راجع المنتجات والكميات قبل إتمام الطلب. (يمكن تحويلها لاحقًا لنظام سلة فعلي)</p>
+      </section>
 
-<script src="js/main.js"></script>
+      <section id="checkout">
+        <h3>إتمام الطلب</h3>
+        <p>يرجى إرسال الاسم، العنوان، الكمية وطريقة التواصل عبر الواتساب أو الاتصال المباشر.</p>
+      </section>
+    </aside>
+  </main>
+
+  <footer>
+    © طرح بلدنا للمحاصيل الزراعية — أبو رواش، الجيزة — مصر
+  </footer>
 </body>
 </html>
