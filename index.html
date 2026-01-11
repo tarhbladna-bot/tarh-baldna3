@@ -147,7 +147,7 @@ header h1{
 <div class="lang-toggle" onclick="toggleLang()">English</div>
 
 <div class="products" id="products">
-<!-- === ضع كل منتجاتك هنا كما في الكود الأصلي === -->
+<!-- === كل منتجاتك الأصلية مع الصور كما هي === -->
 </div>
 
 <div class="cart" id="cart">
@@ -170,33 +170,11 @@ header h1{
 </div>
 
 <!-- ===== عدادات الزوار ===== -->
-<div id="visitor-counter" style="
-position:fixed;
-right:20px;
-top:100px;
-background:#0d1b2a;
-color:#3498db;
-padding:10px 15px;
-border-radius:12px;
-font-weight:bold;
-z-index:1000;
-box-shadow:0 6px 20px rgba(13,27,42,.6);
-">
+<div id="visitor-counter" style="position:fixed;right:20px;top:100px;background:#0d1b2a;color:#3498db;padding:10px 15px;border-radius:12px;font-weight:bold;z-index:1000;box-shadow:0 6px 20px rgba(13,27,42,.6);">
 👁️ زياراتك: <span id="visitorCount">0</span>
 </div>
 
-<div id="global-counter" style="
-position:fixed;
-right:20px;
-top:180px;
-background:#0d1b2a;
-color:#3498db;
-padding:10px 15px;
-border-radius:12px;
-font-weight:bold;
-z-index:1000;
-box-shadow:0 6px 20px rgba(13,27,42,.6);
-">
+<div id="global-counter" style="position:fixed;right:20px;top:180px;background:#0d1b2a;color:#3498db;padding:10px 15px;border-radius:12px;font-weight:bold;z-index:1000;box-shadow:0 6px 20px rgba(13,27,42,.6);">
 🌍 إجمالي الزوار: <span id="globalCount">جاري التحميل...</span>
 </div>
 
@@ -289,15 +267,11 @@ document.getElementById("visitorCount").innerText = visits;
 // ===== عداد الزوار العالمي باستخدام CountAPI =====
 fetch('https://api.countapi.xyz/hit/tarhbladna/visits')
 .then(res => res.json())
-.then(data => {
-  document.getElementById('globalCount').innerText = data.value;
-})
-.catch(err => {
-  console.error('خطأ في جلب عداد الزوار:', err);
-  document.getElementById('globalCount').innerText = 'غير متاح';
-});
+.then(data => {document.getElementById('globalCount').innerText = data.value;})
+.catch(err => {console.error('خطأ في جلب عداد الزوار:', err); document.getElementById('globalCount').innerText = 'غير متاح';});
 
-// ===== Google Analytics الأصلي =====
+// ===== Google Analytics =====
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RDZS95FPK9"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -306,6 +280,5 @@ fetch('https://api.countapi.xyz/hit/tarhbladna/visits')
   gtag('config', 'G-RDZS95FPK9');
 </script>
 
-</script>
 </body>
 </html>
