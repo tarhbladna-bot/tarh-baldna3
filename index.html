@@ -10,14 +10,14 @@ body{
   margin:0;
   font-family:'Cairo',sans-serif;
   background:#0a0a0a; 
-  color:#f5f5dc; 
+  color:#1A1A40; 
 }
 
 /* ===== الهيدر ===== */
 header{
   background:#111;
   padding:15px 25px;
-  border-bottom:2px solid #c19a6b; 
+  border-bottom:2px solid #1A1A40; 
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -26,17 +26,17 @@ header{
   z-index:1000;
 }
 header h1{
-  color:#f5f5dc;               
+  color:#1A1A40;               
   margin:0;
   padding:6px 12px;
-  border:2px solid #c19a6b; 
+  border:2px solid #1A1A40; 
   border-radius:8px;
   background:#0d1b2a;       
 }
 
 /* ===== أيقونات الهيدر ===== */
 .header-icons{display:flex;gap:18px;}
-.icon-item{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:#f5f5dc;font-size:12px;}
+.icon-item{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:#1A1A40;font-size:12px;}
 .icon-circle{
   width:46px;height:46px;
   background:#0d1b2a;
@@ -45,21 +45,21 @@ header h1{
   align-items:center;
   justify-content:center;
   font-size:20px;
-  color:#f5f5dc;
+  color:#1A1A40;
   box-shadow:0 6px 15px rgba(13,27,42,.6);
   transition:transform .3s, background .3s;
 }
 .icon-item:hover .icon-circle{
-  background:linear-gradient(135deg,#0d1b2a,#c19a6b);
+  background:linear-gradient(135deg,#0d1b2a,#1A1A40);
   color:#fff;
   transform:translateY(-2px) scale(1.15);
 }
 .icon-label{margin-top:6px;transition:.3s;}
-.icon-item:hover .icon-label{color:#c19a6b;}
+.icon-item:hover .icon-label{color:#1A1A40;}
 
 /* ===== زر اللغة ===== */
 .lang-toggle{position:fixed;top:20px;right:90px;padding:10px 15px;background:#0d1b2a;border-radius:10px;cursor:pointer;z-index:999;}
-.lang-toggle:hover{background:linear-gradient(135deg,#0d1b2a,#c19a6b);}
+.lang-toggle:hover{background:linear-gradient(135deg,#0d1b2a,#1A1A40);}
 
 /* ===== المنتجات ===== */
 .products{display:flex;flex-wrap:wrap;justify-content:center;gap:25px;padding:30px;}
@@ -76,24 +76,24 @@ header h1{
 .product img.main-img{
   width:100%;border-radius:12px;cursor:pointer;transition:opacity .4s ease;
 }
-.product h2{color:#c19a6b;margin:10px 0 5px}
+.product h2{color:#1A1A40;margin:10px 0 5px}
 
 /* ===== الكمية والسعر ===== */
 .controls{display:flex;gap:6px;justify-content:center;margin:8px 0;}
-.controls input{width:45%;padding:6px;border-radius:8px;border:none;text-align:center;background:#0d1b2a;color:#f5f5dc;}
+.controls input{width:45%;padding:6px;border-radius:8px;border:none;text-align:center;background:#0d1b2a;color:#1A1A40;}
 
 /* ===== الأزرار ===== */
 .product button{
   background:#0d1b2a;
   border:none;
   padding:8px 14px;
-  color:#f5f5dc;
+  color:#1A1A40;
   border-radius:12px;
   font-weight:bold;
   cursor:pointer;
 }
 .product button:hover{
-  background:linear-gradient(135deg,#0d1b2a,#c19a6b);
+  background:linear-gradient(135deg,#0d1b2a,#1A1A40);
   color:#fff;
 }
 
@@ -109,48 +109,48 @@ header h1{
   transition:transform .3s;
 }
 .product-gallery img:hover{transform:scale(1.1);}
-.product-gallery img.selected{border-color:#c19a6b;}
+.product-gallery img.selected{border-color:#1A1A40;}
 
 /* ===== السلة ===== */
 .cart{
   position:fixed;left:20px;top:80px;width:280px;
-  background:#111;border-radius:15px;padding:15px;z-index:999;border:2px solid #c19a6b;
+  background:#111;border-radius:15px;padding:15px;z-index:999;border:2px solid #1A1A40;
 }
 .cart ul{padding:0;list-style:none;}
 .cart li{
-  background:#222;margin-bottom:6px;padding:6px;border-radius:8px;font-size:13px;
+  background:#222;margin-bottom:6px;padding:6px;border-radius:8px;font-size:13px;color:#1A1A40;
 }
 .cart button{
   width:100%;margin-top:6px;padding:8px;border:none;border-radius:10px;
-  background:#0d1b2a;color:#f5f5dc;cursor:pointer;
+  background:#0d1b2a;color:#1A1A40;cursor:pointer;
 }
-.cart button:hover{background:linear-gradient(135deg,#0d1b2a,#c19a6b);color:#fff;}
+.cart button:hover{background:linear-gradient(135deg,#0d1b2a,#1A1A40);color:#fff;}
 
 /* ===== واتساب ===== */
 .whatsapp{
   position:fixed;right:20px;bottom:20px;width:60px;height:60px;
-  background:#0d1b2a;color:#f5f5dc;
+  background:#0d1b2a;color:#1A1A40;
   border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:28px;text-decoration:none;
   box-shadow:0 6px 20px rgba(13,27,42,.6);transition:transform .3s, background .3s;z-index:1000;
 }
-.whatsapp:hover{background:linear-gradient(135deg,#0d1b2a,#c19a6b);color:#fff;}
+.whatsapp:hover{background:linear-gradient(135deg,#0d1b2a,#1A1A40);color:#fff;}
 
 /* ===== Export ===== */
 .export-float{
   position:fixed;left:20px;bottom:20px;padding:12px 18px;
-  background:#0d1b2a;color:#f5f5dc;border-radius:40px;font-weight:bold;cursor:pointer;
+  background:#0d1b2a;color:#1A1A40;border-radius:40px;font-weight:bold;cursor:pointer;
   box-shadow:0 6px 20px rgba(13,27,42,.6);z-index:1000;
   transition:transform .3s, background .3s;
 }
-.export-float:hover{transform:translateY(-3px) scale(1.08);background:linear-gradient(135deg,#0d1b2a,#c19a6b);color:#fff;}
+.export-float:hover{transform:translateY(-3px) scale(1.08);background:linear-gradient(135deg,#0d1b2a,#1A1A40);color:#fff;}
 
 /* ===== Lightbox ===== */
 .lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);display:none;justify-content:center;align-items:center;z-index:3000;}
 .lightbox img{max-width:90%;max-height:90%;border-radius:15px;box-shadow:0 0 30px rgba(13,27,42,.5);transition:opacity .4s ease;}
 
 /* ===== فوتر ===== */
-.footer-icons{display:flex;justify-content:center;gap:25px;margin-top:30px;padding:20px;border-top:2px solid #c19a6b;flex-wrap:wrap;}
-.footer-item{text-align:center;font-size:14px;color:#f5f5dc;}
+.footer-icons{display:flex;justify-content:center;gap:25px;margin-top:30px;padding:20px;border-top:2px solid #1A1A40;flex-wrap:wrap;}
+.footer-item{text-align:center;font-size:14px;color:#1A1A40;}
 .footer-item p{margin:4px 0;}
 </style>
 </head>
@@ -180,9 +180,7 @@ header h1{
 <div class="lang-toggle" onclick="toggleLang()">English</div>
 
 <div class="products" id="products">
-
-<!-- هنا توضع المنتجات بنفس النمط السابق -->
-<!-- فول سوداني بقشره -->
+<!-- مثال على منتج واحد، كرر لكل المنتجات -->
 <div class="product" data-msg-ar="مناسب للتحميص والتجارة" data-msg-en="Ideal for roasting & trading" data-name-ar="فول سوداني بقشره" data-name-en="Peanut In Shell">
 <img class="main-img" src="images/peanut-shell-1.jpg" onclick="openLightbox(this)">
 <h2 class="prod-name">فول سوداني بقشره</h2>
@@ -195,23 +193,6 @@ header h1{
 <img src="images/peanut-shell-1.jpg" class="selected" onclick="changeMainImage(this)">
 <img src="images/peanut-shell-2.jpg" onclick="changeMainImage(this)">
 <img src="images/peanut-shell-3.jpg" onclick="changeMainImage(this)">
-</div>
-</div>
-
-<!-- كرر نفس النمط لبقية المنتجات -->
-<!-- فول سوداني مقشر -->
-<div class="product" data-msg-ar="جاهز للتعبئة والتصدير" data-msg-en="Ready for packing & export" data-name-ar="فول سوداني مقشر" data-name-en="Shelled Peanut">
-<img class="main-img" src="images/peanut-shelled-1.jpg" onclick="openLightbox(this)">
-<h2 class="prod-name">فول سوداني مقشر</h2>
-<div class="controls">
-<input type="number" placeholder="كمية" min="1">
-<input type="number" placeholder="سعر">
-</div>
-<button onclick="add(this,'Shelled Peanut')">أضف للسلة</button>
-<div class="product-gallery">
-<img src="images/peanut-shelled-1.jpg" class="selected" onclick="changeMainImage(this)">
-<img src="images/peanut-shelled-2.jpg" onclick="changeMainImage(this)">
-<img src="images/peanut-shelled-3.jpg" onclick="changeMainImage(this)">
 </div>
 </div>
 
