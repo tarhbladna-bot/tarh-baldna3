@@ -6,6 +6,7 @@
 <title>طرح بلدنا | Tarh Baldna</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 <style>
+/* ===== CSS الأصلي بالكامل ===== */
 body{
   margin:0;
   font-family:'Cairo',sans-serif;
@@ -146,8 +147,70 @@ header h1{
 <div class="lang-toggle" onclick="toggleLang()">English</div>
 
 <div class="products" id="products">
+<!-- === المنتجات الأصلية كما هي === -->
+<!-- 1: فول بقشره -->
+<div class="product" data-msg-ar="مناسب للتحميص والتجارة" data-msg-en="Ideal for roasting & trading" data-name-ar="فول سوداني بقشره" data-name-en="Peanut In Shell">
+<img class="main-img" src="images/peanut-shell-1.jpg" onclick="openLightbox(this)">
+<h2 class="prod-name">فول سوداني بقشره</h2>
+<div class="controls">
+<input type="number" placeholder="كمية" min="1">
+<input type="number" placeholder="سعر">
+</div>
+<button onclick="add(this,'Peanut In Shell')">أضف للسلة</button>
+<div class="product-gallery">
+<img src="images/peanut-shell-1.jpg" class="selected" onclick="changeMainImage(this)">
+<img src="images/peanut-shell-2.jpg" onclick="changeMainImage(this)">
+<img src="images/peanut-shell-3.jpg" onclick="changeMainImage(this)">
+</div>
+</div>
 
-<!-- منتجاتك هنا مثل ما موجود في الكود الأصلي -->
+<!-- 2: فول مقشر -->
+<div class="product" data-msg-ar="للاستخدام الفوري" data-msg-en="Ready to use" data-name-ar="فول سوداني مقشر" data-name-en="Shelled Peanut">
+<img class="main-img" src="images/peanut-shelled-1.jpg" onclick="openLightbox(this)">
+<h2 class="prod-name">فول سوداني مقشر</h2>
+<div class="controls">
+<input type="number" placeholder="كمية" min="1">
+<input type="number" placeholder="سعر">
+</div>
+<button onclick="add(this,'Shelled Peanut')">أضف للسلة</button>
+<div class="product-gallery">
+<img src="images/peanut-shelled-1.jpg" class="selected" onclick="changeMainImage(this)">
+<img src="images/peanut-shelled-2.jpg" onclick="changeMainImage(this)">
+<img src="images/peanut-shelled-3.jpg" onclick="changeMainImage(this)">
+</div>
+</div>
+
+<!-- 3: فول مجروش -->
+<div class="product" data-msg-ar="مناسب للطبخ والحلويات" data-msg-en="Ideal for cooking & desserts" data-name-ar="فول سوداني مجروش" data-name-en="Crushed Peanut">
+<img class="main-img" src="images/peanut-crushed-1.jpg" onclick="openLightbox(this)">
+<h2 class="prod-name">فول سوداني مجروش</h2>
+<div class="controls">
+<input type="number" placeholder="كمية" min="1">
+<input type="number" placeholder="سعر">
+</div>
+<button onclick="add(this,'Crushed Peanut')">أضف للسلة</button>
+<div class="product-gallery">
+<img src="images/peanut-crushed-1.jpg" class="selected" onclick="changeMainImage(this)">
+<img src="images/peanut-crushed-2.jpg" onclick="changeMainImage(this)">
+<img src="images/peanut-crushed-3.jpg" onclick="changeMainImage(this)">
+</div>
+</div>
+
+<!-- 4: فول حلواني -->
+<div class="product" data-msg-ar="للحلويات والمكسرات" data-msg-en="For sweets & nuts" data-name-ar="فول سوداني حلواني" data-name-en="Halawani Peanut">
+<img class="main-img" src="images/peanut-halawani-1.jpg" onclick="openLightbox(this)">
+<h2 class="prod-name">فول سوداني حلواني</h2>
+<div class="controls">
+<input type="number" placeholder="كمية" min="1">
+<input type="number" placeholder="سعر">
+</div>
+<button onclick="add(this,'Halawani Peanut')">أضف للسلة</button>
+<div class="product-gallery">
+<img src="images/peanut-halawani-1.jpg" class="selected" onclick="changeMainImage(this)">
+<img src="images/peanut-halawani-2.jpg" onclick="changeMainImage(this)">
+<img src="images/peanut-halawani-3.jpg" onclick="changeMainImage(this)">
+</div>
+</div>
 
 </div>
 
@@ -170,7 +233,7 @@ header h1{
 <div class="footer-item"><p class="ft-ar">📞 01020508423 / 01126773698</p><p class="ft-en" style="display:none">📞 01020508423 / 01126773698</p></div>
 </div>
 
-<!-- عداد الزوار المرئي -->
+<!-- عداد الزوار المرئي فقط -->
 <div id="visitor-counter" style="
 position:fixed;
 right:20px;
@@ -187,6 +250,7 @@ box-shadow:0 6px 20px rgba(13,27,42,.6);
 </div>
 
 <script>
+// ==== JS الأصلي كما هو ====
 let cart=[];
 let currentLang='ar';
 
@@ -265,11 +329,12 @@ function toggleCart(){document.getElementById('cart').classList.toggle('active')
 
 function openAbout(){alert("شركة طرح بلدنا\nخبرة وجودة في بيع الفول السوداني بأنواعه\nللتواصل: 01020508423 / 01126773698");}
 
-// عداد الزوار المرئي
+// ==== عداد الزوار تقديري للعميل ====
 let visits = localStorage.getItem("visits") || 0;
 visits = parseInt(visits) + 1;
 localStorage.setItem("visits", visits);
 document.getElementById("visitorCount").innerText = visits;
+
 </script>
 
 <!-- Google Analytics -->
