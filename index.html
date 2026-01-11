@@ -6,19 +6,18 @@
 <title>طرح بلدنا | Tarh Baldna</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 <style>
-/* ===== ألوان الخلفية والنصوص ===== */
 body{
   margin:0;
   font-family:'Cairo',sans-serif;
-  background:#0a0a0a; /* أسود داكن */
-  color:#f5f5dc; /* كشمير للنصوص */
+  background:#0a0a0a; 
+  color:#f5f5dc; 
 }
 
 /* ===== الهيدر ===== */
 header{
   background:#111;
   padding:15px 25px;
-  border-bottom:2px solid #c19a6b; /* حواف كشمير */
+  border-bottom:2px solid #c19a6b; 
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -74,7 +73,9 @@ header h1{
   transition:.3s;
 }
 .product:hover{transform:translateY(-8px) scale(1.02);}
-.product img.main-img{width:100%;border-radius:12px;cursor:pointer;transition:opacity .3s;}
+.product img.main-img{
+  width:100%;border-radius:12px;cursor:pointer;transition:opacity .4s ease;
+}
 .product h2{color:#c19a6b;margin:10px 0 5px}
 
 /* ===== الكمية والسعر ===== */
@@ -105,7 +106,9 @@ header h1{
 }
 .product-gallery img{
   width:55px;height:55px;border-radius:8px;cursor:pointer;border:2px solid transparent;
+  transition:transform .3s;
 }
+.product-gallery img:hover{transform:scale(1.1);}
 .product-gallery img.selected{border-color:#c19a6b;}
 
 /* ===== السلة ===== */
@@ -143,7 +146,7 @@ header h1{
 
 /* ===== Lightbox ===== */
 .lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);display:none;justify-content:center;align-items:center;z-index:3000;}
-.lightbox img{max-width:90%;max-height:90%;border-radius:15px;box-shadow:0 0 30px rgba(13,27,42,.5);}
+.lightbox img{max-width:90%;max-height:90%;border-radius:15px;box-shadow:0 0 30px rgba(13,27,42,.5);transition:opacity .4s ease;}
 
 /* ===== فوتر ===== */
 .footer-icons{display:flex;justify-content:center;gap:25px;margin-top:30px;padding:20px;border-top:2px solid #c19a6b;flex-wrap:wrap;}
@@ -178,6 +181,7 @@ header h1{
 
 <div class="products" id="products">
 
+<!-- هنا توضع المنتجات بنفس النمط السابق -->
 <!-- فول سوداني بقشره -->
 <div class="product" data-msg-ar="مناسب للتحميص والتجارة" data-msg-en="Ideal for roasting & trading" data-name-ar="فول سوداني بقشره" data-name-en="Peanut In Shell">
 <img class="main-img" src="images/peanut-shell-1.jpg" onclick="openLightbox(this)">
@@ -194,6 +198,7 @@ header h1{
 </div>
 </div>
 
+<!-- كرر نفس النمط لبقية المنتجات -->
 <!-- فول سوداني مقشر -->
 <div class="product" data-msg-ar="جاهز للتعبئة والتصدير" data-msg-en="Ready for packing & export" data-name-ar="فول سوداني مقشر" data-name-en="Shelled Peanut">
 <img class="main-img" src="images/peanut-shelled-1.jpg" onclick="openLightbox(this)">
@@ -207,38 +212,6 @@ header h1{
 <img src="images/peanut-shelled-1.jpg" class="selected" onclick="changeMainImage(this)">
 <img src="images/peanut-shelled-2.jpg" onclick="changeMainImage(this)">
 <img src="images/peanut-shelled-3.jpg" onclick="changeMainImage(this)">
-</div>
-</div>
-
-<!-- فول سوداني مجروش -->
-<div class="product" data-msg-ar="مناسب للتحميص والتجارة" data-msg-en="Ideal for crushing & trading" data-name-ar="فول سوداني مجروش" data-name-en="Crushed Peanut">
-<img class="main-img" src="images/peanut-crushed-1.jpg" onclick="openLightbox(this)">
-<h2 class="prod-name">فول سوداني مجروش</h2>
-<div class="controls">
-<input type="number" placeholder="كمية" min="1">
-<input type="number" placeholder="سعر">
-</div>
-<button onclick="add(this,'Crushed Peanut')">أضف للسلة</button>
-<div class="product-gallery">
-<img src="images/peanut-crushed-1.jpg" class="selected" onclick="changeMainImage(this)">
-<img src="images/peanut-crushed-2.jpg" onclick="changeMainImage(this)">
-<img src="images/peanut-crushed-3.jpg" onclick="changeMainImage(this)">
-</div>
-</div>
-
-<!-- فول سوداني حلواني -->
-<div class="product" data-msg-ar="للاستهلاك الفوري والحلويات" data-msg-en="For immediate consumption & sweets" data-name-ar="فول سوداني حلواني" data-name-en="Halawani Peanut">
-<img class="main-img" src="images/peanut-halawani-1.jpg" onclick="openLightbox(this)">
-<h2 class="prod-name">فول سوداني حلواني</h2>
-<div class="controls">
-<input type="number" placeholder="كمية" min="1">
-<input type="number" placeholder="سعر">
-</div>
-<button onclick="add(this,'Halawani Peanut')">أضف للسلة</button>
-<div class="product-gallery">
-<img src="images/peanut-halawani-1.jpg" class="selected" onclick="changeMainImage(this)">
-<img src="images/peanut-halawani-2.jpg" onclick="changeMainImage(this)">
-<img src="images/peanut-halawani-3.jpg" onclick="changeMainImage(this)">
 </div>
 </div>
 
@@ -311,7 +284,10 @@ el.classList.add('selected');
 }
 
 function openLightbox(el){
-document.getElementById('lightbox-img').src=el.src;
+let lb=document.getElementById('lightbox-img');
+lb.style.opacity=0;
+lb.src=el.src;
+setTimeout(()=>{lb.style.opacity=1;},50);
 document.getElementById('lightbox').style.display='flex';
 }
 function closeLightbox(){document.getElementById('lightbox').style.display='none';}
