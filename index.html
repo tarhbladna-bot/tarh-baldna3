@@ -147,8 +147,7 @@ header h1{
 <div class="lang-toggle" onclick="toggleLang()">English</div>
 
 <div class="products" id="products">
-<!-- === جميع المنتجات كما في الكود الأصلي === -->
-<!-- المنتجات محفوظة كما هي دون أي تغيير -->
+<!-- === ضع كل منتجاتك هنا كما في الكود الأصلي === -->
 </div>
 
 <div class="cart" id="cart">
@@ -170,7 +169,7 @@ header h1{
 <div class="footer-item"><p class="ft-ar">📞 01020508423 / 01126773698</p><p class="ft-en" style="display:none">📞 01020508423 / 01126773698</p></div>
 </div>
 
-<!-- عداد الزوار المحلي -->
+<!-- ===== عدادات الزوار ===== -->
 <div id="visitor-counter" style="
 position:fixed;
 right:20px;
@@ -183,10 +182,9 @@ font-weight:bold;
 z-index:1000;
 box-shadow:0 6px 20px rgba(13,27,42,.6);
 ">
-👁️ عدد زياراتك: <span id="visitorCount">0</span>
+👁️ زياراتك: <span id="visitorCount">0</span>
 </div>
 
-<!-- عداد الزوار العالمي -->
 <div id="global-counter" style="
 position:fixed;
 right:20px;
@@ -199,11 +197,11 @@ font-weight:bold;
 z-index:1000;
 box-shadow:0 6px 20px rgba(13,27,42,.6);
 ">
-🌍 إجمالي الزوار: <span id="globalCount">تحميل...</span>
+🌍 إجمالي الزوار: <span id="globalCount">جاري التحميل...</span>
 </div>
 
 <script>
-// ==== JS الأصلي ====
+// ===== JS الأصلي بالكامل =====
 let cart=[];
 let currentLang='ar';
 
@@ -282,13 +280,13 @@ function toggleCart(){document.getElementById('cart').classList.toggle('active')
 
 function openAbout(){alert("شركة طرح بلدنا\nخبرة وجودة في بيع الفول السوداني بأنواعه\nللتواصل: 01020508423 / 01126773698");}
 
-// ==== عداد الزوار المحلي (لكل جهاز) ====
+// ===== عداد الزوار المحلي =====
 let visits = localStorage.getItem("visits") || 0;
 visits = parseInt(visits) + 1;
 localStorage.setItem("visits", visits);
 document.getElementById("visitorCount").innerText = visits;
 
-// ==== عداد الزوار العالمي باستخدام CountAPI ====
+// ===== عداد الزوار العالمي باستخدام CountAPI =====
 fetch('https://api.countapi.xyz/hit/tarhbladna/visits')
 .then(res => res.json())
 .then(data => {
@@ -298,7 +296,16 @@ fetch('https://api.countapi.xyz/hit/tarhbladna/visits')
   console.error('خطأ في جلب عداد الزوار:', err);
   document.getElementById('globalCount').innerText = 'غير متاح';
 });
+
+// ===== Google Analytics الأصلي =====
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RDZS95FPK9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-RDZS95FPK9');
 </script>
 
+</script>
 </body>
 </html>
