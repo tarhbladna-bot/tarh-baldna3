@@ -1,266 +1,344 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Tarh Bldna | طرح بلدنا</title>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>طرح بلدنا | Tarh Baldna</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --black:#0b0b0b;
-  --gold:#d4af37;
-  --gold2:#b8962e;
-  --white:#ffffff;
-}
-
-*{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-
+/* ===== ألوان الخلفية والنصوص ===== */
 body{
   margin:0;
-  background:var(--black);
-  color:var(--white);
+  font-family:'Cairo',sans-serif;
+  background:#0a0a0a; /* أسود داكن */
+  color:#f5f5dc; /* كشمير للنصوص */
 }
 
+/* ===== الهيدر ===== */
 header{
-  background:linear-gradient(135deg,#000,#111);
-  padding:20px;
+  background:#111;
+  padding:15px 25px;
+  border-bottom:2px solid #c19a6b; /* حواف كشمير */
   display:flex;
   justify-content:space-between;
   align-items:center;
-  border-bottom:2px solid var(--gold);
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
-
 header h1{
+  color:#f5f5dc;               
   margin:0;
-  color:var(--gold);
-  font-size:24px;
-}
-
-.lang-btn{
-  background:transparent;
-  border:1px solid var(--gold);
-  color:var(--gold);
   padding:6px 12px;
-  cursor:pointer;
+  border:2px solid #c19a6b; 
+  border-radius:8px;
+  background:#0d1b2a;       
 }
 
-.hero{
-  padding:40px 20px;
-  text-align:center;
-}
-
-.hero h2{
-  color:var(--gold);
-  margin-bottom:10px;
-}
-
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-  padding:20px;
-}
-
-.card{
-  background:#111;
-  border:1px solid var(--gold2);
-  border-radius:12px;
-  overflow:hidden;
-}
-
-.card img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-}
-
-.card .content{
-  padding:15px;
-}
-
-.card h3{
-  margin:0 0 10px;
-  color:var(--gold);
-}
-
-.card button{
-  width:100%;
-  background:var(--gold);
-  color:#000;
-  border:none;
-  padding:10px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.about, .contact{
-  padding:30px 20px;
-  border-top:1px solid var(--gold2);
-}
-
-.about h2, .contact h2{
-  color:var(--gold);
-}
-
-.cart{
-  position:fixed;
-  top:20px;
-  left:20px;
-  background:#111;
-  border:1px solid var(--gold);
-  padding:10px;
-  border-radius:10px;
-  font-size:14px;
-}
-
-.cart ul{
-  list-style:none;
-  padding:0;
-  margin:0;
-}
-
-.cart button{
-  margin-top:8px;
-  width:100%;
-  background:var(--gold);
-  border:none;
-  padding:6px;
-  cursor:pointer;
-}
-
-.floating{
-  position:fixed;
-  right:20px;
-  bottom:20px;
+/* ===== أيقونات الهيدر ===== */
+.header-icons{display:flex;gap:18px;}
+.icon-item{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:#f5f5dc;font-size:12px;}
+.icon-circle{
+  width:46px;height:46px;
+  background:#0d1b2a;
+  border-radius:50%;
   display:flex;
-  flex-direction:column;
-  gap:10px;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  color:#f5f5dc;
+  box-shadow:0 6px 15px rgba(13,27,42,.6);
+  transition:transform .3s, background .3s;
 }
-
-.floating a{
-  background:var(--gold);
-  color:#000;
-  padding:10px 14px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:bold;
-  text-align:center;
+.icon-item:hover .icon-circle{
+  background:linear-gradient(135deg,#0d1b2a,#c19a6b);
+  color:#fff;
+  transform:translateY(-2px) scale(1.15);
 }
+.icon-label{margin-top:6px;transition:.3s;}
+.icon-item:hover .icon-label{color:#c19a6b;}
 
-footer{
-  text-align:center;
+/* ===== زر اللغة ===== */
+.lang-toggle{position:fixed;top:20px;right:90px;padding:10px 15px;background:#0d1b2a;border-radius:10px;cursor:pointer;z-index:999;}
+.lang-toggle:hover{background:linear-gradient(135deg,#0d1b2a,#c19a6b);}
+
+/* ===== المنتجات ===== */
+.products{display:flex;flex-wrap:wrap;justify-content:center;gap:25px;padding:30px;}
+.product{
+  background:#111;
+  width:260px;
+  border-radius:18px;
   padding:15px;
-  border-top:1px solid var(--gold2);
-  font-size:13px;
+  text-align:center;
+  box-shadow:0 6px 20px rgba(13,27,42,.4);
+  transition:.3s;
 }
+.product:hover{transform:translateY(-8px) scale(1.02);}
+.product img.main-img{width:100%;border-radius:12px;cursor:pointer;transition:opacity .3s;}
+.product h2{color:#c19a6b;margin:10px 0 5px}
+
+/* ===== الكمية والسعر ===== */
+.controls{display:flex;gap:6px;justify-content:center;margin:8px 0;}
+.controls input{width:45%;padding:6px;border-radius:8px;border:none;text-align:center;background:#0d1b2a;color:#f5f5dc;}
+
+/* ===== الأزرار ===== */
+.product button{
+  background:#0d1b2a;
+  border:none;
+  padding:8px 14px;
+  color:#f5f5dc;
+  border-radius:12px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.product button:hover{
+  background:linear-gradient(135deg,#0d1b2a,#c19a6b);
+  color:#fff;
+}
+
+/* ===== معرض الصور ===== */
+.product-gallery{
+  display:flex;
+  justify-content:center;
+  gap:6px;
+  margin-top:8px;
+}
+.product-gallery img{
+  width:55px;height:55px;border-radius:8px;cursor:pointer;border:2px solid transparent;
+}
+.product-gallery img.selected{border-color:#c19a6b;}
+
+/* ===== السلة ===== */
+.cart{
+  position:fixed;left:20px;top:80px;width:280px;
+  background:#111;border-radius:15px;padding:15px;z-index:999;border:2px solid #c19a6b;
+}
+.cart ul{padding:0;list-style:none;}
+.cart li{
+  background:#222;margin-bottom:6px;padding:6px;border-radius:8px;font-size:13px;
+}
+.cart button{
+  width:100%;margin-top:6px;padding:8px;border:none;border-radius:10px;
+  background:#0d1b2a;color:#f5f5dc;cursor:pointer;
+}
+.cart button:hover{background:linear-gradient(135deg,#0d1b2a,#c19a6b);color:#fff;}
+
+/* ===== واتساب ===== */
+.whatsapp{
+  position:fixed;right:20px;bottom:20px;width:60px;height:60px;
+  background:#0d1b2a;color:#f5f5dc;
+  border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:28px;text-decoration:none;
+  box-shadow:0 6px 20px rgba(13,27,42,.6);transition:transform .3s, background .3s;z-index:1000;
+}
+.whatsapp:hover{background:linear-gradient(135deg,#0d1b2a,#c19a6b);color:#fff;}
+
+/* ===== Export ===== */
+.export-float{
+  position:fixed;left:20px;bottom:20px;padding:12px 18px;
+  background:#0d1b2a;color:#f5f5dc;border-radius:40px;font-weight:bold;cursor:pointer;
+  box-shadow:0 6px 20px rgba(13,27,42,.6);z-index:1000;
+  transition:transform .3s, background .3s;
+}
+.export-float:hover{transform:translateY(-3px) scale(1.08);background:linear-gradient(135deg,#0d1b2a,#c19a6b);color:#fff;}
+
+/* ===== Lightbox ===== */
+.lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);display:none;justify-content:center;align-items:center;z-index:3000;}
+.lightbox img{max-width:90%;max-height:90%;border-radius:15px;box-shadow:0 0 30px rgba(13,27,42,.5);}
+
+/* ===== فوتر ===== */
+.footer-icons{display:flex;justify-content:center;gap:25px;margin-top:30px;padding:20px;border-top:2px solid #c19a6b;flex-wrap:wrap;}
+.footer-item{text-align:center;font-size:14px;color:#f5f5dc;}
+.footer-item p{margin:4px 0;}
 </style>
 </head>
-
 <body>
 
 <header>
-  <h1 id="logo">طرح بلدنا</h1>
-  <button class="lang-btn" onclick="toggleLang()">EN</button>
+<h1>طرح بلدنا</h1>
+<div class="header-icons">
+<a class="icon-item" href="javascript:void(0)" onclick="toggleCart()">
+<div class="icon-circle">🛒</div><div class="icon-label">السلة</div>
+</a>
+<a class="icon-item" href="#products">
+<div class="icon-circle">📦</div><div class="icon-label">المنتجات</div>
+</a>
+<a class="icon-item" href="javascript:void(0)" onclick="openAbout()">
+<div class="icon-circle">ℹ</div><div class="icon-label">من نحن</div>
+</a>
+<a class="icon-item" href="mailto:tarhbladna@gmail.com">
+<div class="icon-circle">✉</div><div class="icon-label">الإيميل</div>
+</a>
+<a class="icon-item" href="https://wa.me/201126773698" target="_blank">
+<div class="icon-circle">📞</div><div class="icon-label">واتساب</div>
+</a>
+</div>
 </header>
 
-<section class="hero">
-  <h2 id="heroTitle">منتجات طبيعية بجودة عالية</h2>
-  <p id="heroText">اطلب عرض سعر الآن – الدفع عند الاستلام</p>
-</section>
-<section class="hero">
-  <h2 id="heroTitle">منتجات طبيعية بجودة عالية</h2>
-  <p id="heroText">اطلب عرض سعر الآن – الدفع عند الاستلام</p>
-</section>
+<div class="lang-toggle" onclick="toggleLang()">English</div>
 
-<section class="products" id="products">
-  <div class="card">
-    <img src="images/product1.jpg" />
-    <div class="content">
-      <h3>فول سوداني بقشره</h3>
-      <button onclick="addToCart('فول سوداني بقشره')">أضف للسلة</button>
-    </div>
-  </div>
+<div class="products" id="products">
 
-  <div class="card">
-    <img src="images/product2.jpg" />
-    <div class="content">
-      <h3>فول سوداني مقشر</h3>
-      <button onclick="addToCart('فول س
-       </div>
-  </div>
-
-  <div class="card">
-    <img src="images/product3.jpg" />
-    <div class="content">
-      <h3>فول حلواني</h3>
-      <button onclick="addToCart('فول حلواني')">أضف للسلة</button>
-    </div>
-  </div>
-</section>                          
-
-</section>
-
-<section class="contact" id="contact">
-  <h2>تواصل معنا</h2>
-  <p>📱 واتساب: <a href="https://wa.me/201126773698" style="color:var(--gold)">01126773698</a></p>
-  <p>📧 إيميل: <a href="mailto:info@tarhbldna.com" style="color:var(--gold)">info@tarhbldna.com</a></p>
-</section>
-
-<div class="cart">
-  <strong>🛒 السلة</strong>
-  <ul id="cartItems"></ul>
-  <button onclick="requestQuote()">اطلب عرض سعر</button>
+<!-- فول سوداني بقشره -->
+<div class="product" data-msg-ar="مناسب للتحميص والتجارة" data-msg-en="Ideal for roasting & trading" data-name-ar="فول سوداني بقشره" data-name-en="Peanut In Shell">
+<img class="main-img" src="images/peanut-shell-1.jpg" onclick="openLightbox(this)">
+<h2 class="prod-name">فول سوداني بقشره</h2>
+<div class="controls">
+<input type="number" placeholder="كمية" min="1">
+<input type="number" placeholder="سعر">
+</div>
+<button onclick="add(this,'Peanut In Shell')">أضف للسلة</button>
+<div class="product-gallery">
+<img src="images/peanut-shell-1.jpg" class="selected" onclick="changeMainImage(this)">
+<img src="images/peanut-shell-2.jpg" onclick="changeMainImage(this)">
+<img src="images/peanut-shell-3.jpg" onclick="changeMainImage(this)">
+</div>
 </div>
 
-<div class="floating">
-  <a href="#products">المنتجات</a>
-  <a href="#about">نبذة</a>
-  <a href="#contact">تواصل</a>
+<!-- فول سوداني مقشر -->
+<div class="product" data-msg-ar="جاهز للتعبئة والتصدير" data-msg-en="Ready for packing & export" data-name-ar="فول سوداني مقشر" data-name-en="Shelled Peanut">
+<img class="main-img" src="images/peanut-shelled-1.jpg" onclick="openLightbox(this)">
+<h2 class="prod-name">فول سوداني مقشر</h2>
+<div class="controls">
+<input type="number" placeholder="كمية" min="1">
+<input type="number" placeholder="سعر">
+</div>
+<button onclick="add(this,'Shelled Peanut')">أضف للسلة</button>
+<div class="product-gallery">
+<img src="images/peanut-shelled-1.jpg" class="selected" onclick="changeMainImage(this)">
+<img src="images/peanut-shelled-2.jpg" onclick="changeMainImage(this)">
+<img src="images/peanut-shelled-3.jpg" onclick="changeMainImage(this)">
+</div>
 </div>
 
-<footer>
-  © 2026 Tarh Bldna – الدفع عند الاستلام
-</footer>
+<!-- فول سوداني مجروش -->
+<div class="product" data-msg-ar="مناسب للتحميص والتجارة" data-msg-en="Ideal for crushing & trading" data-name-ar="فول سوداني مجروش" data-name-en="Crushed Peanut">
+<img class="main-img" src="images/peanut-crushed-1.jpg" onclick="openLightbox(this)">
+<h2 class="prod-name">فول سوداني مجروش</h2>
+<div class="controls">
+<input type="number" placeholder="كمية" min="1">
+<input type="number" placeholder="سعر">
+</div>
+<button onclick="add(this,'Crushed Peanut')">أضف للسلة</button>
+<div class="product-gallery">
+<img src="images/peanut-crushed-1.jpg" class="selected" onclick="changeMainImage(this)">
+<img src="images/peanut-crushed-2.jpg" onclick="changeMainImage(this)">
+<img src="images/peanut-crushed-3.jpg" onclick="changeMainImage(this)">
+</div>
+</div>
+
+<!-- فول سوداني حلواني -->
+<div class="product" data-msg-ar="للاستهلاك الفوري والحلويات" data-msg-en="For immediate consumption & sweets" data-name-ar="فول سوداني حلواني" data-name-en="Halawani Peanut">
+<img class="main-img" src="images/peanut-halawani-1.jpg" onclick="openLightbox(this)">
+<h2 class="prod-name">فول سوداني حلواني</h2>
+<div class="controls">
+<input type="number" placeholder="كمية" min="1">
+<input type="number" placeholder="سعر">
+</div>
+<button onclick="add(this,'Halawani Peanut')">أضف للسلة</button>
+<div class="product-gallery">
+<img src="images/peanut-halawani-1.jpg" class="selected" onclick="changeMainImage(this)">
+<img src="images/peanut-halawani-2.jpg" onclick="changeMainImage(this)">
+<img src="images/peanut-halawani-3.jpg" onclick="changeMainImage(this)">
+</div>
+</div>
+
+</div>
+
+<div class="cart" id="cart">
+<h3>سلة الطلب</h3>
+<ul id="items"></ul>
+<button onclick="send()">اطلب واتساب</button>
+<button onclick="clearCart()">تفريغ</button>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+<img id="lightbox-img">
+</div>
+
+<div class="footer-icons">
+<div class="footer-item"><p class="ft-ar">🛒 السلة</p><p class="ft-en" style="display:none">🛒 Cart</p></div>
+<div class="footer-item"><p class="ft-ar">📦 المنتجات</p><p class="ft-en" style="display:none">📦 Products</p></div>
+<div class="footer-item"><p class="ft-ar">ℹ من نحن</p><p class="ft-en" style="display:none">ℹ About Us</p></div>
+<div class="footer-item"><p class="ft-ar">✉ tarhbladna@gmail.com</p><p class="ft-en" style="display:none">✉ tarhbladna@gmail.com</p></div>
+<div class="footer-item"><p class="ft-ar">📞 01020508423 / 01126773698</p><p class="ft-en" style="display:none">📞 01020508423 / 01126773698</p></div>
+</div>
 
 <script>
-let cart = [];
-let ar = true;
+let cart=[];
+let currentLang='ar';
 
-function addToCart(item){
-  cart.push(item);
-  renderCart();
+function add(btn,name){
+let product = btn.closest('.product');
+let qty = product.querySelector('input[type=number]').value;
+let price = product.querySelectorAll('input')[1].value;
+if(!qty){qty='غير محدد';}
+if(!price){price='حسب الاتفاق';}
+let img = product.querySelector('.main-img').src;
+let msgAr = product.dataset.msgAr;
+let msgEn = product.dataset.msgEn;
+cart.push({name,qty,price,img,msgAr,msgEn});
+renderCart();
 }
 
 function renderCart(){
-  const ul = document.getElementById("cartItems");
-  ul.innerHTML = "";
-  cart.forEach(i=>{
-    const li = document.createElement("li");
-    li.textContent = "• " + i;
-    ul.appendChild(li);
-  });
+let ul=document.getElementById('items');
+ul.innerHTML='';
+cart.forEach(i=>{
+let li=document.createElement('li');
+li.innerHTML=`${i.name}<br>كمية: ${i.qty}<br>سعر: ${i.price}`;
+ul.appendChild(li);
+});
 }
 
-function requestQuote(){
-  if(cart.length===0){
-    alert("السلة فارغة");
-    return;
-  }
-  const msg = encodeURIComponent("طلب عرض سعر للمنتجات:\n" + cart.join("\n"));
-  window.open("https://wa.me/201126773698?text=" + msg,"_blank");
+function clearCart(){cart=[];renderCart();}
+
+function send(){
+if(cart.length===0){alert('السلة فارغة');return;}
+let msg=`طلب جديد من موقع طرح بلدنا\n\n`;
+cart.forEach((i,n)=>{
+msg+=`${n+1}) ${i.name}\nالكمية: ${i.qty}\nالسعر: ${i.price}\nملاحظة: ${i.msgAr}\nImage: ${i.img}\n\nEN:\n${i.name}\nQty: ${i.qty}\nPrice: ${i.price}\n${i.msgEn}\n\n`;
+});
+window.open('https://wa.me/201126773698?text='+encodeURIComponent(msg),'_blank');
 }
+
+function changeMainImage(el){
+let p=el.closest('.product');
+let main=p.querySelector('.main-img');
+main.style.opacity=0;
+setTimeout(()=>{main.src=el.src;main.style.opacity=1;},200);
+p.querySelectorAll('.product-gallery img').forEach(i=>i.classList.remove('selected'));
+el.classList.add('selected');
+}
+
+function openLightbox(el){
+document.getElementById('lightbox-img').src=el.src;
+document.getElementById('lightbox').style.display='flex';
+}
+function closeLightbox(){document.getElementById('lightbox').style.display='none';}
 
 function toggleLang(){
-  ar = !ar;
-  document.documentElement.lang = ar ? "ar" : "en";
-  document.documentElement.dir = ar ? "rtl" : "ltr";
-
-  document.getElementById("logo").textContent = ar ? "طرح بلدنا" : "Tarh Bldna";
-  document.getElementById("heroTitle").textContent = ar ? "منتجات طبيعية بجودة عالية" : "Natural Products – High Quality";
-  document.getElementById("heroText").textContent = ar ? "اطلب عرض سعر الآن – الدفع عند الاستلام" : "Request a quote – Cash on delivery";
+let ar = document.querySelectorAll('.ft-ar, .prod-name');
+let en = document.querySelectorAll('.ft-en');
+if(currentLang==='ar'){
+ar.forEach(e=>e.style.display='none');
+en.forEach(e=>e.style.display='block');
+document.querySelector('.lang-toggle').textContent='عربي';
+currentLang='en';
+}else{
+ar.forEach(e=>e.style.display='block');
+en.forEach(e=>e.style.display='none');
+document.querySelector('.lang-toggle').textContent='English';
+currentLang='ar';
 }
+document.querySelectorAll('.product').forEach(p=>{
+p.querySelector('.prod-name').textContent=currentLang==='en'?p.dataset.nameEn:p.dataset.nameAr;
+});
+}
+
+function toggleCart(){document.getElementById('cart').classList.toggle('active');}
+
+function openAbout(){alert("شركة طرح بلدنا\nخبرة وجودة في بيع الفول السوداني بأنواعه\nللتواصل: 01020508423 / 01126773698");}
 </script>
-<a href="export.html" class="export-fixed">
-  
+
 </body>
 </html>
