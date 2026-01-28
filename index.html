@@ -143,7 +143,42 @@ header h1{
 <a class="icon-item" href="https://wa.me/201126773698" target="_blank"><div class="icon-circle">📞</div><div class="icon-label">واتساب</div></a>
 </div>
 </header>
-
+<!-- قسم البانر -->
+<section class="banner-section">
+  <div class="banner-slider">
+    <img src="images/banner1.jpg" alt="بانر 1">
+    <img src="images/banner2.jpg" alt="بانر 2">
+  </div>
+</section>
+<!-- قسم البانر -->
+<section class="banner-section">
+  <div class="banner-slider">
+    <img src="attachments/Zjkk9oZaUc2j9MWUMEkvW.jpeg" alt="بانر 1">
+    <img src="attachments/HPo3KopNzB3kxmYUhoyy4.jpeg" alt="بانر 2">
+  </div>
+</section>
+<style>
+.banner-section{
+  width:100%;
+  overflow:hidden;
+  margin:20px auto;
+  border-radius:12px;
+}
+.banner-slider{
+  display:flex;
+  width:200%;
+  animation: slideBanner 8s infinite;
+}
+.banner-slider img{
+  width:100%;
+  object-fit:cover;
+}
+@keyframes slideBanner{
+  0%{transform:translateX(0);}
+  50%{transform:translateX(-100%);}
+  100%{transform:translateX(0);}
+}
+</style>
 <div class="lang-toggle" onclick="toggleLang()">English</div>
 
 <div class="products" id="products">
