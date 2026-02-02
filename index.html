@@ -234,6 +234,44 @@ header h1{
     height: 70px;
     font-size: 30px;
   }
+/* للشاشات الصغيرة (موبايل) */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .header-icons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .banner-slider img {
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .products {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product {
+    width: 95%;
+  }
+
+  .footer-icons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .cart-toggle, .whatsapp {
+    width: 70px;
+    height: 70px;
+    font-size: 30px;
+  }
 }
 </style>
 </head>
