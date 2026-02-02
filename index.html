@@ -171,23 +171,6 @@ header h1{
 }
 .whatsapp:hover{transform:scale(1.1)}
 
-/* ===== Export ===== */
-.export-float{
-  position:fixed;
-  left:20px;
-  bottom:20px;
-  background:var(--secondary);
-  color:var(--primary);
-  padding:12px 18px;
-  border-radius:40px;
-  font-weight:bold;
-  cursor:pointer;
-  box-shadow:0 6px 20px rgba(0,0,0,.6);
-  z-index:1000;
-  transition:.3s;
-}
-.export-float:hover{transform:scale(1.08)}
-
 /* ===== Lightbox ===== */
 .lightbox{
   position:fixed;
@@ -218,6 +201,40 @@ header h1{
 }
 .footer-item{text-align:center;font-size:14px;color:var(--light);}
 .footer-item p{margin:4px 0;}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .header-icons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .banner-slider img {
+    height: 250px;
+    object-fit: cover;
+  }
+  .products {
+    flex-direction: column;
+    align-items: center;
+  }
+  .product {
+    width: 90%;
+  }
+  .footer-icons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  .cart-toggle, .whatsapp {
+    width: 70px;
+    height: 70px;
+    font-size: 30px;
+  }
+}
 </style>
 </head>
 
@@ -244,43 +261,35 @@ header h1{
   <!-- فول سوداني بقشره -->
   <div class="product">
     <img class="main-img" src="images/peanut-shell-1.jpg" onclick="openLightbox(this)">
-    <h2>
-      <span class="ar">فول سوداني بقشره</span>
-      <span class="en" style="display:none">Peanuts in Shell</span>
-    </h2>
-    <p>
-      <span class="ar">السعر عند الطلب</span>
-      <span class="en" style="display:none">Price on Request</span>
-    </p>
-    <button onclick="add('فول سوداني بقشره')">
-      <span class="ar">أضف للسلة</span>
-      <span class="en" style="display:none">Add to Cart</span>
-    </button>
+    <h2><span class="ar">فول سوداني بقشره</span><span class="en" style="display:none">Peanuts in Shell</span></h2>
+    <p><span class="ar">السعر عند الطلب</span><span class="en" style="display:none">Price on Request</span></p>
+    <button onclick="add('فول سوداني بقشره')"><span class="ar">أضف للسلة</span><span class="en" style="display:none">Add to Cart</span></button>
     <div class="product-gallery">
       <img src="images/peanut-shell-2.jpg" class="selected" onclick="changeMainImage(this)">
       <img src="images/peanut-shell-3.jpg" onclick="changeMainImage(this)">
     </div>
   </div>
 <!-- فول سوداني مقشر -->
-<div class="product">
-  <img class="main-img" src="images/peanut-shelled-1.jpg" onclick="openLightbox(this)">
-  <h2>
-    <span class="ar">فول سوداني مقشر</span>
-    <span class="en" style="display:none">Shelled Peanuts</span>
-  </h2>
-  <p>
-    <span class="ar">السعر عند الطلب</span>
-    <span class="en" style="display:none">Price on Request</span>
-  </p>
-  <button onclick="add('فول سوداني مقشر')">
-    <span class="ar">أضف للسلة</span>
-    <span class="en" style="display:none">Add to Cart</span>
-  </button>
-  <div class="product-gallery">
-    <img src="images/peanut-shelled-2.jpg" class="selected" onclick="changeMainImage(this)">
-    <img src="images/peanut-shelled-3.jpg" onclick="changeMainImage(this)">
+  <div class="product">
+    <img class="main-img" src="images/peanut-shelled-1.jpg" onclick="openLightbox(this)">
+    <h2>
+      <span class="ar">فول سوداني مقشر</span>
+      <span class="en" style="display:none">Shelled Peanuts</span>
+    </h2>
+    <p>
+      <span class="ar">السعر عند الطلب</span>
+      <span class="en" style="display:none">Price on Request</span>
+    </p>
+    <button onclick="add('فول سوداني مقشر')">
+      <span class="ar">أضف للسلة</span>
+      <span class="en" style="display:none">Add to Cart</span>
+    </button>
+    <div class="product-gallery">
+      <img src="images/peanut-shelled-2.jpg" class="selected" onclick="changeMainImage(this)">
+      <img src="images/peanut-shelled-3.jpg" onclick="changeMainImage(this)">
+    </div>
   </div>
-</div>
+
   <!-- فول سوداني مجروش -->
   <div class="product">
     <img class="main-img" src="images/peanut-crushed-1.jpg" onclick="openLightbox(this)">
@@ -322,131 +331,4 @@ header h1{
       <img src="images/peanut-halawani-3.jpg" onclick="changeMainImage(this)">
     </div>
   </div>
-
 </div>
-
-<div class="cart-toggle" onclick="toggleCart()">🛒 <span class="ar">السلة</span><span class="en" style="display:none">Cart</span></div>
-
-<div class="cart" id="cart">
-  <h3>
-    <span class="ar">سلة الطلب</span>
-    <span class="en" style="display:none">Order Cart</span>
-  </h3>
-  <ul id="items"></ul>
-  <button onclick="send()">
-    <span class="ar">اطلب واتساب</span>
-    <span class="en" style="display:none">Order via WhatsApp</span>
-  </button>
-  <button onclick="clearCart()">
-    <span class="ar">تفريغ السلة</span>
-    <span class="en" style="display:none">Clear Cart</span>
-  </button>
-</div>
-
-<a class="whatsapp" href="https://wa.me/201126773698" target="_blank">💬</a>
-<div class="export-float" onclick="exportCart()">📤 Export</div>
-
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img">
-</div>
-
-<!-- ===== الفوتر ===== -->
-<div class="footer-icons">
-  <div class="footer-item">
-    <p>🛒 <span class="ar">السلة</span><span class="en" style="display:none">Cart</span></p>
-    <p><span class="ar">عدد المنتجات:</span><span class="en" style="display:none">Items:</span> <span id="footer-count">0</span></p>
-  </div>
-  <div class="footer-item">
-    <p>📦 <span class="ar">المنتجات</span><span class="en" style="display:none">Products</span></p>
-    <p><span class="ar">عدد أنواع الفول: 4</span><span class="en" style="display:none">Peanut Types: 4</span></p>
-  </div>
-  <div class="footer-item">
-    <p>ℹ <span class="ar">من نحن</span><span class="en" style="display:none">About Us</span></p>
-    <p><span class="ar">نبذة عن الشركة</span><span class="en" style="display:none">Company Overview</span></p>
-  </div>
-  <div class="footer-item">
-    <p>✉ tarhbladna@gmail.com</p>
-  </div>
-  <div class="footer-item">
-    <p>📞 <span class="ar">واتساب</span><span class="en" style="display:none">WhatsApp</span> 01020508423</p>
-  </div>
-</div>
-
-<script>
-let cart=[];
-
-function add(item){
-  cart.push(item);
-  renderCart();
-}
-
-function renderCart(){
-  let ul=document.getElementById('items');
-  ul.innerHTML='';
-  cart.forEach(i=>{
-    let li=document.createElement('li');
-    li.textContent=i;
-    ul.appendChild(li);
-  });
-  document.getElementById('footer-count').textContent=cart.length;
-}
-
-function clearCart(){
-  cart=[];
-  renderCart();
-}
-
-function toggleCart(){
-  document.getElementById('cart').classList.toggle('active');
-}
-
-function send(){
-  if(cart.length===0){alert('السلة فارغة / Cart is empty');return;}
-  let msg='طلب:\n'+cart.join('\n');
-  window.open('https://wa.me/201126773698?text='+encodeURIComponent(msg),'_blank');
-}
-
-function openLightbox(el){
-  document.getElementById('lightbox-img').src=el.src;
-  document.getElementById('lightbox').style.display='flex';
-}
-function closeLightbox(){
-  document.getElementById('lightbox').style.display='none';
-}
-
-function changeMainImage(el){
-  let product = el.closest('.product');
-  product.querySelector('.main-img').src = el.src;
-  product.querySelectorAll('.product-gallery img').forEach(img=>img.classList.remove('selected'));
-  el.classList.add('selected');
-}
-
-function exportCart(){
-  if(cart.length===0){alert('السلة فارغة / Cart is empty');return;}
-  alert(cart.join('\n'));
-}
-
-function openAbout(){
-  alert("شركة طرح بلدنا\nTarh Baldna Company\nخبرة وجودة في بيع الفول السوداني بأنواعه\nQuality and expertise in peanuts\nللتواصل: 01020508423 / 01126773698");
-}
-
-/* ===== تبديل اللغة ===== */
-let currentLang = 'ar';
-function toggleLang(){
-  if(currentLang === 'ar'){
-    document.querySelectorAll('.ar').forEach(e=>e.style.display='none');
-    document.querySelectorAll('.en').forEach(e=>e.style.display='inline');
-    document.querySelector('.lang-toggle').textContent = 'عربي';
-    currentLang = 'en';
-  } else {
-    document.querySelectorAll('.ar').forEach(e=>e.style.display='inline');
-    document.querySelectorAll('.en').forEach(e=>e.style.display='none');
-    document.querySelector('.lang-toggle').textContent = 'English';
-    currentLang = 'ar';
-  }
-}
-</script>
-
-</body>
-</html>
-  
