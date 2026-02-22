@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -118,21 +117,7 @@
             margin-right: 25px;
             font-weight: 600;
             transition: 0.3s;
-            position: relative;
         }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: var(--primary-red);
-            transition: 0.3s;
-        }
-
-        nav a:hover::after { width: 100%; }
 
         /* الهيرو */
         .hero {
@@ -155,9 +140,9 @@
             max-width: 800px;
         }
 
-        .hero h1 { font-size: 55px; font-weight: 900; margin-bottom: 20px; line-height: 1.3; }
-        .hero h1 span { color: var(--primary-red); text-shadow: 0 0 20px rgba(217, 4, 41, 0.5); }
-        
+        .hero h1 { font-size: 55px; font-weight: 900; margin-bottom: 20px; }
+        .hero h1 span { color: var(--primary-red); }
+
         .btn-red {
             background: var(--primary-red);
             color: white;
@@ -167,12 +152,9 @@
             font-weight: 900;
             display: inline-block;
             transition: 0.4s;
-            box-shadow: 0 10px 30px rgba(217, 4, 41, 0.4);
             border: none;
             cursor: pointer;
         }
-
-        .btn-red:hover { transform: scale(1.05); background: #ff0000; box-shadow: 0 15px 40px rgba(217, 4, 41, 0.6); }
 
         /* قسم المنتجات */
         .section-padding { padding: 100px 8%; }
@@ -194,7 +176,7 @@
             position: relative;
         }
 
-        .img-container { height: 250px; overflow: hidden; position: relative; }
+        .img-container { height: 250px; overflow: hidden; }
         .img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         
         .thumb-gallery {
@@ -204,17 +186,17 @@
             padding: 10px;
         }
         .thumb-gallery img {
-            width: 50px;
-            height: 40px;
+            width: 55px;
+            height: 45px;
             object-fit: cover;
             border-radius: 5px;
             cursor: pointer;
             border: 1px solid var(--glass-white);
-            opacity: 0.6;
+            transition: 0.3s;
         }
-        .thumb-gallery img:hover { opacity: 1; border-color: var(--primary-red); }
+        .thumb-gallery img:hover { border-color: var(--primary-red); transform: scale(1.1); }
 
-        .product-info { padding: 15px 25px 25px; text-align: center; }
+        .product-info { padding: 10px 25px 25px; text-align: center; }
         .price-tag { color: var(--gold-touch); font-weight: 700; font-size: 18px; margin-bottom: 15px; display: block; }
 
         .watermark {
@@ -229,7 +211,7 @@
             z-index: 10;
         }
 
-        /* ستايل آراء العملاء (إضافة جديدة) */
+        /* آراء العملاء */
         .testimonials-container {
             display: flex;
             overflow-x: auto;
@@ -237,26 +219,14 @@
             padding: 20px 0;
             scrollbar-width: none;
         }
-        .testimonials-container::-webkit-scrollbar { display: none; }
-
         .testi-card {
             min-width: 300px;
             background: var(--card-bg);
             padding: 30px;
             border-radius: 20px;
             border: 1px solid var(--glass-white);
-            position: relative;
-        }
-        .testi-card i.quote {
-            font-size: 30px;
-            color: var(--primary-red);
-            opacity: 0.3;
-            position: absolute;
-            top: 20px;
-            right: 20px;
         }
         .stars { color: var(--gold-touch); margin-bottom: 10px; }
-        .customer-name { font-weight: 700; margin-top: 15px; color: var(--primary-red); display: block; }
 
         /* السلة */
         .cart-section {
@@ -275,25 +245,11 @@
             justify-content: space-between;
         }
 
-        /* لماذا نحن */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
-        }
-        .feature-box {
-            text-align: center;
-            padding: 40px;
-            background: var(--glass-white);
-            border-radius: 20px;
-        }
-        .feature-box i { font-size: 50px; color: var(--primary-red); margin-bottom: 20px; }
-
         footer {
             background: #000;
             padding: 60px 8% 20px;
-            border-top: 1px solid var(--glass-white);
             text-align: center;
+            border-top: 1px solid var(--glass-white);
         }
         .social-icons a { color: white; font-size: 24px; margin: 0 15px; }
 
@@ -338,15 +294,16 @@
 <section class="section-padding" id="products">
     <h2 class="section-title">محاصيلنا <span>المختارة</span></h2>
     <div class="products-grid">
+        
         <div class="product-card">
             <div class="watermark">الأكثر طلباً</div>
             <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1599591459461-9c60df392764?w=500" class="main-img" id="img1">
+                <img src="https://images.unsplash.com/photo-1599591459461-9c60df392764?w=500" id="mainImg1">
             </div>
             <div class="thumb-gallery">
-                <img src="https://images.unsplash.com/photo-1599591459461-9c60df392764?w=500" onclick="changeImage('img1', this.src)">
-                <img src="https://images.unsplash.com/photo-1552345387-9bc153929314?w=500" onclick="changeImage('img1', this.src)">
-                <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500" onclick="changeImage('img1', this.src)">
+                <img src="https://images.unsplash.com/photo-1599591459461-9c60df392764?w=500" onclick="changeImage('mainImg1', this.src)">
+                <img src="https://images.unsplash.com/photo-1552345387-9bc153929314?w=500" onclick="changeImage('mainImg1', this.src)">
+                <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500" onclick="changeImage('mainImg1', this.src)">
             </div>
             <div class="product-info">
                 <h3>فول سوداني بقشره</h3>
@@ -357,12 +314,12 @@
 
         <div class="product-card">
             <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1599591459416-8c460d392764?w=500" class="main-img" id="img2">
+                <img src="https://images.unsplash.com/photo-1599591459416-8c460d392764?w=500" id="mainImg2">
             </div>
             <div class="thumb-gallery">
-                <img src="https://images.unsplash.com/photo-1599591459416-8c460d392764?w=500" onclick="changeImage('img2', this.src)">
-                <img src="https://images.unsplash.com/photo-1511381939415-e4401546383d?w=500" onclick="changeImage('img2', this.src)">
-                <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=500" onclick="changeImage('img2', this.src)">
+                <img src="https://images.unsplash.com/photo-1599591459416-8c460d392764?w=500" onclick="changeImage('mainImg2', this.src)">
+                <img src="https://images.unsplash.com/photo-1511381939415-e4401546383d?w=500" onclick="changeImage('mainImg2', this.src)">
+                <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=500" onclick="changeImage('mainImg2', this.src)">
             </div>
             <div class="product-info">
                 <h3>فول سوداني مقشر</h3>
@@ -370,6 +327,23 @@
                 <button class="btn-red add-to-cart" data-name="فول سوداني مقشر">أضف للسلة</button>
             </div>
         </div>
+
+        <div class="product-card">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1534324403061-002f2323e0ec?w=500" id="mainImg3">
+            </div>
+            <div class="thumb-gallery">
+                <img src="https://images.unsplash.com/photo-1534324403061-002f2323e0ec?w=500" onclick="changeImage('mainImg3', this.src)">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500" onclick="changeImage('mainImg3', this.src)">
+                <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=500" onclick="changeImage('mainImg3', this.src)">
+            </div>
+            <div class="product-info">
+                <h3>فول سوداني حلواني</h3>
+                <span class="price-tag">تصنيع ممتاز (80 - 95)</span>
+                <button class="btn-red add-to-cart" data-name="فول سوداني حلواني">أضف للسلة</button>
+            </div>
+        </div>
+
     </div>
 
     <div class="cart-section">
@@ -383,32 +357,15 @@
     <h2 class="section-title">قالوا عن <span>طرح بلدنا</span></h2>
     <div class="testimonials-container">
         <div class="testi-card">
-            <i class="fas fa-quote-left quote"></i>
             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
             <p>"بصراحة أفضل جودة فول سوداني تعاملت معها، الفرز دقيق جداً والالتزام بالمواعيد ممتاز."</p>
-            <span class="customer-name">- م. أحمد الشريف (تاجر جملة)</span>
+            <span style="color:var(--primary-red);">- م. أحمد الشريف</span>
         </div>
         <div class="testi-card">
-            <i class="fas fa-quote-left quote"></i>
             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
             <p>"التعامل معهم مريح جداً، والأسعار منافسة مقارنة بالجودة العالية للمحصول."</p>
-            <span class="customer-name">- الأستاذ محمد علي (مصنع حلويات)</span>
+            <span style="color:var(--primary-red);">- الأستاذ محمد علي</span>
         </div>
-        <div class="testi-card">
-            <i class="fas fa-quote-left quote"></i>
-            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-            <p>"شحنة التصدير وصلت في حالة ممتازة، التغليف والفرز مطابق للمواصفات العالمية."</p>
-            <span class="customer-name">- الحاج إبراهيم (مكتب استيراد وتصدير)</span>
-        </div>
-    </div>
-</section>
-
-<section class="section-padding" id="why">
-    <h2 class="section-title">لماذا <span>طرح بلدنا</span>؟</h2>
-    <div class="features-grid">
-        <div class="feature-box"><i class="fas fa-award"></i><h3>15 عاماً خبرة</h3><p>تاريخ طويل من الثقة في السوق المصري والدولي.</p></div>
-        <div class="feature-box"><i class="fas fa-microscope"></i><h3>فرز آلي وبشري</h3><p>نضمن خلو المحصول من الشوائب والعيوب تماماً.</p></div>
-        <div class="feature-box"><i class="fas fa-truck-fast"></i><h3>التزام توريد</h3><p>مواعيدك مقدسة لدينا، نصلك أينما كنت.</p></div>
     </div>
 </section>
 
@@ -418,7 +375,6 @@
         <p><i class="fas fa-phone"></i> 01126773698 | 01020508423</p>
         <div class="social-icons" style="margin-top: 30px;">
             <a href="https://www.facebook.com/TarhBladna" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="https://wa.me/201020508423" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </div>
     </div>
