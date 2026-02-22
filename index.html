@@ -16,6 +16,7 @@
             --card-bg: #121212;
             --glass-white: rgba(255, 255, 255, 0.05);
             --gold-touch: #efb810;
+            --whatsapp-green: #25d366;
         }
 
         * {
@@ -30,6 +31,41 @@
             color: #ffffff;
             font-family: 'Cairo', sans-serif;
             overflow-x: hidden;
+        }
+
+        /* الأزرار العائمة (إضافة جديدة) */
+        .floating-contact {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 9999;
+        }
+
+        .float-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 25px;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            transition: 0.3s;
+            animation: pulse-animation 2s infinite;
+        }
+
+        .float-wa { background: var(--whatsapp-green); }
+        .float-call { background: var(--primary-red); }
+
+        @keyframes pulse-animation {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
         }
 
         /* الماركي (الشريط المتحرك) */
@@ -155,15 +191,34 @@
             border: 1px solid var(--glass-white);
             transition: 0.4s;
             position: relative;
+            padding-bottom: 10px;
         }
 
         .product-card:hover { border-color: var(--primary-red); transform: translateY(-10px); }
 
+        /* ستايل معرض الصور المصغر */
         .img-container { height: 250px; overflow: hidden; position: relative; }
         .img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .product-card:hover .img-container img { transform: scale(1.1); }
+        
+        .thumb-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px;
+        }
+        .thumb-gallery img {
+            width: 50px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid var(--glass-white);
+            opacity: 0.6;
+            transition: 0.3s;
+        }
+        .thumb-gallery img:hover { opacity: 1; border-color: var(--primary-red); }
 
-        .product-info { padding: 25px; text-align: center; }
+        .product-info { padding: 15px 25px 25px; text-align: center; }
         .product-info h3 { font-size: 22px; margin-bottom: 10px; }
         .price-tag { color: var(--gold-touch); font-weight: 700; font-size: 18px; margin-bottom: 15px; display: block; }
 
@@ -176,6 +231,7 @@
             border-radius: 10px;
             font-size: 12px;
             font-weight: bold;
+            z-index: 10;
         }
 
         /* السلة العائمة */
@@ -234,11 +290,16 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 35px; }
-            nav { display: none; }
+            .nav { display: none; }
         }
     </style>
 </head>
 <body>
+
+<div class="floating-contact">
+    <a href="https://wa.me/201020508423" class="float-btn float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="tel:01126773698" class="float-btn float-call"><i class="fas fa-phone"></i></a>
+</div>
 
 <div class="promo-bar">
     <div class="promo-content">
@@ -269,10 +330,16 @@
 <section class="section-padding" id="products">
     <h2 class="section-title">محاصيلنا <span>المختارة</span></h2>
     <div class="products-grid">
+        
         <div class="product-card">
             <div class="watermark">الأكثر طلباً</div>
             <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1599591459461-9c60df392764?auto=format&fit=crop&w=500&q=80" alt="فول سوداني بقشره">
+                <img src="https://images.unsplash.com/photo-1599591459461-9c60df392764?w=500" class="main-img" id="img1">
+            </div>
+            <div class="thumb-gallery">
+                <img src="https://images.unsplash.com/photo-1599591459461-9c60df392764?w=500" onclick="changeImage('img1', this.src)">
+                <img src="https://images.unsplash.com/photo-1552345387-9bc153929314?w=500" onclick="changeImage('img1', this.src)">
+                <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500" onclick="changeImage('img1', this.src)">
             </div>
             <div class="product-info">
                 <h3>فول سوداني بقشره</h3>
@@ -283,7 +350,12 @@
 
         <div class="product-card">
             <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1599591459416-8c460d392764?auto=format&fit=crop&w=500&q=80" alt="فول سوداني مقشر">
+                <img src="https://images.unsplash.com/photo-1599591459416-8c460d392764?w=500" class="main-img" id="img2">
+            </div>
+            <div class="thumb-gallery">
+                <img src="https://images.unsplash.com/photo-1599591459416-8c460d392764?w=500" onclick="changeImage('img2', this.src)">
+                <img src="https://images.unsplash.com/photo-1511381939415-e4401546383d?w=500" onclick="changeImage('img2', this.src)">
+                <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=500" onclick="changeImage('img2', this.src)">
             </div>
             <div class="product-info">
                 <h3>فول سوداني مقشر</h3>
@@ -294,7 +366,12 @@
 
         <div class="product-card">
             <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1534324403061-002f2323e0ec?auto=format&fit=crop&w=500&q=80" alt="فول سوداني حلواني">
+                <img src="https://images.unsplash.com/photo-1534324403061-002f2323e0ec?w=500" class="main-img" id="img3">
+            </div>
+            <div class="thumb-gallery">
+                <img src="https://images.unsplash.com/photo-1534324403061-002f2323e0ec?w=500" onclick="changeImage('img3', this.src)">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500" onclick="changeImage('img3', this.src)">
+                <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=500" onclick="changeImage('img3', this.src)">
             </div>
             <div class="product-info">
                 <h3>فول سوداني حلواني</h3>
@@ -342,9 +419,9 @@
             <p><i class="fas fa-envelope" style="color: var(--primary-red);"></i> tarhbladna@gmail.com</p>
         </div>
         <div class="social-icons" style="margin-top: 30px;">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/201020508423"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/TarhBladna" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/tarhbladna" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/201020508423" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </div>
     </div>
 </section>
@@ -356,6 +433,11 @@
 </footer>
 
 <script>
+    // وظيفة تبديل الصور في المعرض
+    function changeImage(targetId, newSrc) {
+        document.getElementById(targetId).src = newSrc;
+    }
+
     let cart = [];
     const cartItemsElement = document.getElementById('cart-items');
 
@@ -365,7 +447,6 @@
             cart.push(productName);
             updateCart();
             
-            // تأثير بصري بسيط عند الإضافة
             button.innerText = "تمت الإضافة ✓";
             button.style.background = "#28a745";
             setTimeout(() => {
