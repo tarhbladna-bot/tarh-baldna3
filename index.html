@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -33,7 +34,7 @@
             overflow-x: hidden;
         }
 
-        /* الأزرار العائمة (إضافة جديدة) */
+        /* الأزرار العائمة */
         .floating-contact {
             position: fixed;
             bottom: 25px;
@@ -68,7 +69,7 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
         }
 
-        /* الماركي (الشريط المتحرك) */
+        /* الماركي */
         .promo-bar {
             background: var(--primary-red);
             color: white;
@@ -89,7 +90,7 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* هيدر احترافي */
+        /* الهيدر */
         header {
             background: rgba(5, 5, 5, 0.8);
             backdrop-filter: blur(15px);
@@ -133,10 +134,10 @@
 
         nav a:hover::after { width: 100%; }
 
-        /* قسم الهيرو */
+        /* الهيرو */
         .hero {
             height: 90vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1559440668-968653228898?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1559440668-968653228898?auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -173,7 +174,7 @@
 
         .btn-red:hover { transform: scale(1.05); background: #ff0000; box-shadow: 0 15px 40px rgba(217, 4, 41, 0.6); }
 
-        /* كروت المنتجات */
+        /* قسم المنتجات */
         .section-padding { padding: 100px 8%; }
         .section-title { text-align: center; font-size: 40px; margin-bottom: 60px; font-weight: 900; }
         .section-title span { color: var(--primary-red); }
@@ -191,12 +192,8 @@
             border: 1px solid var(--glass-white);
             transition: 0.4s;
             position: relative;
-            padding-bottom: 10px;
         }
 
-        .product-card:hover { border-color: var(--primary-red); transform: translateY(-10px); }
-
-        /* ستايل معرض الصور المصغر */
         .img-container { height: 250px; overflow: hidden; position: relative; }
         .img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         
@@ -214,12 +211,10 @@
             cursor: pointer;
             border: 1px solid var(--glass-white);
             opacity: 0.6;
-            transition: 0.3s;
         }
         .thumb-gallery img:hover { opacity: 1; border-color: var(--primary-red); }
 
         .product-info { padding: 15px 25px 25px; text-align: center; }
-        .product-info h3 { font-size: 22px; margin-bottom: 10px; }
         .price-tag { color: var(--gold-touch); font-weight: 700; font-size: 18px; margin-bottom: 15px; display: block; }
 
         .watermark {
@@ -234,7 +229,36 @@
             z-index: 10;
         }
 
-        /* السلة العائمة */
+        /* ستايل آراء العملاء (إضافة جديدة) */
+        .testimonials-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 20px 0;
+            scrollbar-width: none;
+        }
+        .testimonials-container::-webkit-scrollbar { display: none; }
+
+        .testi-card {
+            min-width: 300px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-white);
+            position: relative;
+        }
+        .testi-card i.quote {
+            font-size: 30px;
+            color: var(--primary-red);
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .stars { color: var(--gold-touch); margin-bottom: 10px; }
+        .customer-name { font-weight: 700; margin-top: 15px; color: var(--primary-red); display: block; }
+
+        /* السلة */
         .cart-section {
             background: linear-gradient(45deg, #121212, #1a0000);
             border-radius: 30px;
@@ -242,8 +266,6 @@
             border: 1px solid var(--dark-red);
             margin-top: 50px;
         }
-
-        .cart-list { list-style: none; margin-bottom: 20px; }
         .cart-list li { 
             background: rgba(255,255,255,0.05); 
             padding: 10px 20px; 
@@ -253,44 +275,31 @@
             justify-content: space-between;
         }
 
-        /* لماذا نحن - أيقونات حمراء */
+        /* لماذا نحن */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 30px;
         }
-
         .feature-box {
             text-align: center;
             padding: 40px;
             background: var(--glass-white);
             border-radius: 20px;
-            transition: 0.3s;
         }
-
         .feature-box i { font-size: 50px; color: var(--primary-red); margin-bottom: 20px; }
-        .feature-box:hover { background: var(--dark-red); }
 
-        /* فوتر */
         footer {
             background: #000;
             padding: 60px 8% 20px;
             border-top: 1px solid var(--glass-white);
             text-align: center;
         }
-
-        .social-icons { margin-bottom: 30px; }
-        .social-icons a { 
-            color: white; 
-            font-size: 24px; 
-            margin: 0 15px; 
-            transition: 0.3s; 
-        }
-        .social-icons a:hover { color: var(--primary-red); }
+        .social-icons a { color: white; font-size: 24px; margin: 0 15px; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 35px; }
-            .nav { display: none; }
+            nav { display: none; }
         }
     </style>
 </head>
@@ -304,7 +313,6 @@
 <div class="promo-bar">
     <div class="promo-content">
         ✨ متخصصون في توريد أجود أنواع الفول السوداني للتصدير والسوق المحلي — خبرة 15 عاماً — نلتزم بالجودة والسعر العادل — 
-        ✨ متخصصون في توريد أجود أنواع الفول السوداني للتصدير والسوق المحلي — خبرة 15 عاماً — نلتزم بالجودة والسعر العادل — 
     </div>
 </div>
 
@@ -313,7 +321,7 @@
     <nav>
         <a href="#home">الرئيسية</a>
         <a href="#products">المنتجات</a>
-        <a href="#why">لماذا نحن</a>
+        <a href="#testimonials">آراء العملاء</a>
         <a href="#contact">اتصل بنا</a>
     </nav>
     <a href="https://wa.me/201020508423" class="btn-red" style="padding: 10px 25px;">طلب سريع</a>
@@ -323,14 +331,13 @@
     <div class="hero-box">
         <h1>أجود محاصيل <span>الأرض المصرية</span> إلى مخازنكم مباشرة</h1>
         <p>نحن في "طرح بلدنا" نؤمن أن الجودة هي مفتاح الاستمرار. نوفر الفول السوداني بكافة أنواعه وفق أعلى المعايير العالمية.</p>
-        <a href="#products" class="btn-red"><i class="fas fa-shopping-basket"></i> تصفح منتجاتنا</a>
+        <a href="#products" class="btn-red">تصفح منتجاتنا</a>
     </div>
 </section>
 
 <section class="section-padding" id="products">
     <h2 class="section-title">محاصيلنا <span>المختارة</span></h2>
     <div class="products-grid">
-        
         <div class="product-card">
             <div class="watermark">الأكثر طلباً</div>
             <div class="img-container">
@@ -363,81 +370,68 @@
                 <button class="btn-red add-to-cart" data-name="فول سوداني مقشر">أضف للسلة</button>
             </div>
         </div>
-
-        <div class="product-card">
-            <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1534324403061-002f2323e0ec?w=500" class="main-img" id="img3">
-            </div>
-            <div class="thumb-gallery">
-                <img src="https://images.unsplash.com/photo-1534324403061-002f2323e0ec?w=500" onclick="changeImage('img3', this.src)">
-                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500" onclick="changeImage('img3', this.src)">
-                <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=500" onclick="changeImage('img3', this.src)">
-            </div>
-            <div class="product-info">
-                <h3>فول سوداني حلواني</h3>
-                <span class="price-tag">تصنيع ممتاز (80 - 95)</span>
-                <button class="btn-red add-to-cart" data-name="فول سوداني حلواني">أضف للسلة</button>
-            </div>
-        </div>
     </div>
 
     <div class="cart-section">
-        <h3 style="margin-bottom: 20px;"><i class="fas fa-shopping-cart" style="color: var(--primary-red);"></i> طلبية جديدة</h3>
-        <ul class="cart-list" id="cart-items">
-            </ul>
-        <button class="btn-red" id="whatsapp-btn" style="width: 100%;"><i class="fab fa-whatsapp"></i> إتمام الطلب عبر واتساب</button>
+        <h3><i class="fas fa-shopping-cart"></i> طلبية جديدة</h3>
+        <ul class="cart-list" id="cart-items"></ul>
+        <button class="btn-red" id="whatsapp-btn" style="width: 100%;">إتمام الطلب عبر واتساب</button>
     </div>
 </section>
 
-<section class="section-padding" id="why" style="background: #080808;">
+<section class="section-padding" id="testimonials" style="background: #080808;">
+    <h2 class="section-title">قالوا عن <span>طرح بلدنا</span></h2>
+    <div class="testimonials-container">
+        <div class="testi-card">
+            <i class="fas fa-quote-left quote"></i>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p>"بصراحة أفضل جودة فول سوداني تعاملت معها، الفرز دقيق جداً والالتزام بالمواعيد ممتاز."</p>
+            <span class="customer-name">- م. أحمد الشريف (تاجر جملة)</span>
+        </div>
+        <div class="testi-card">
+            <i class="fas fa-quote-left quote"></i>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p>"التعامل معهم مريح جداً، والأسعار منافسة مقارنة بالجودة العالية للمحصول."</p>
+            <span class="customer-name">- الأستاذ محمد علي (مصنع حلويات)</span>
+        </div>
+        <div class="testi-card">
+            <i class="fas fa-quote-left quote"></i>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p>"شحنة التصدير وصلت في حالة ممتازة، التغليف والفرز مطابق للمواصفات العالمية."</p>
+            <span class="customer-name">- الحاج إبراهيم (مكتب استيراد وتصدير)</span>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding" id="why">
     <h2 class="section-title">لماذا <span>طرح بلدنا</span>؟</h2>
     <div class="features-grid">
-        <div class="feature-box">
-            <i class="fas fa-award"></i>
-            <h3>15 عاماً خبرة</h3>
-            <p>تاريخ طويل من الثقة في السوق المصري والدولي.</p>
-        </div>
-        <div class="feature-box">
-            <i class="fas fa-microscope"></i>
-            <h3>فرز آلي وبشري</h3>
-            <p>نضمن خلو المحصول من الشوائب والعيوب تماماً.</p>
-        </div>
-        <div class="feature-box">
-            <i class="fas fa-truck-fast"></i>
-            <h3>التزام توريد</h3>
-            <p>مواعيدك مقدسة لدينا، نصلك أينما كنت وفي الموعد.</p>
-        </div>
+        <div class="feature-box"><i class="fas fa-award"></i><h3>15 عاماً خبرة</h3><p>تاريخ طويل من الثقة في السوق المصري والدولي.</p></div>
+        <div class="feature-box"><i class="fas fa-microscope"></i><h3>فرز آلي وبشري</h3><p>نضمن خلو المحصول من الشوائب والعيوب تماماً.</p></div>
+        <div class="feature-box"><i class="fas fa-truck-fast"></i><h3>التزام توريد</h3><p>مواعيدك مقدسة لدينا، نصلك أينما كنت.</p></div>
     </div>
 </section>
 
 <section class="section-padding" id="contact">
     <div style="background: var(--card-bg); padding: 50px; border-radius: 40px; text-align: center; border: 1px solid var(--glass-white);">
         <h2 class="section-title">تواصل مع <span>الإدارة</span></h2>
-        <div style="font-size: 20px; line-height: 2.5;">
-            <p><i class="fas fa-map-marker-alt" style="color: var(--primary-red);"></i> أبورواش – الجيزة</p>
-            <p><i class="fas fa-phone" style="color: var(--primary-red);"></i> 01126773698 | 01020508423</p>
-            <p><i class="fas fa-envelope" style="color: var(--primary-red);"></i> tarhbladna@gmail.com</p>
-        </div>
+        <p><i class="fas fa-phone"></i> 01126773698 | 01020508423</p>
         <div class="social-icons" style="margin-top: 30px;">
             <a href="https://www.facebook.com/TarhBladna" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/tarhbladna" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="https://wa.me/201020508423" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </div>
     </div>
 </section>
 
 <footer>
-    <div class="logo" style="margin-bottom: 20px;">طرح<span> بلدنا</span></div>
+    <div class="logo">طرح<span> بلدنا</span></div>
     <p>© 2026 جميع الحقوق محفوظة لشركة طرح بلدنا للمحاصيل الزراعية</p>
-    <p style="font-size: 12px; margin-top: 10px; color: #444;">صنع بكل إتقان ليعكس جودة محاصيلنا</p>
 </footer>
 
 <script>
-    // وظيفة تبديل الصور في المعرض
-    function changeImage(targetId, newSrc) {
-        document.getElementById(targetId).src = newSrc;
-    }
-
+    function changeImage(targetId, newSrc) { document.getElementById(targetId).src = newSrc; }
+    
     let cart = [];
     const cartItemsElement = document.getElementById('cart-items');
 
@@ -446,13 +440,8 @@
             const productName = button.getAttribute('data-name');
             cart.push(productName);
             updateCart();
-            
             button.innerText = "تمت الإضافة ✓";
-            button.style.background = "#28a745";
-            setTimeout(() => {
-                button.innerText = "أضف للسلة";
-                button.style.background = "var(--primary-red)";
-            }, 1000);
+            setTimeout(() => { button.innerText = "أضف للسلة"; }, 1000);
         });
     });
 
@@ -465,16 +454,10 @@
         });
     }
 
-    function removeItem(index) {
-        cart.splice(index, 1);
-        updateCart();
-    }
+    function removeItem(index) { cart.splice(index, 1); updateCart(); }
 
     document.getElementById('whatsapp-btn').addEventListener('click', () => {
-        if (cart.length === 0) {
-            alert('السلة فارغة، فضلاً اختر بعض المنتجات');
-            return;
-        }
+        if (cart.length === 0) { alert('السلة فارغة'); return; }
         const message = encodeURIComponent(`مرحباً طرح بلدنا، أرغب في طلب:\n- ${cart.join('\n- ')}`);
         window.open(`https://wa.me/201126773698?text=${message}`, '_blank');
     });
