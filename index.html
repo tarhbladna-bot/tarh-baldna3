@@ -1,120 +1,403 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home - Tarh bladna</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طرح بلدنا | فخامة المحاصيل الزراعية</title>
     
-    <link rel="canonical" href="https://yhagciqxo3.trywebops.co/">
-    <meta name="robots" content="index, follow">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Home - Tarh bladna">
-    <meta property="og:url" content="https://yhagciqxo3.trywebops.co/">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        /* التنسيقات الأساسية المتوافقة مع Astra Theme */
         :root {
-            --ast-global-color-0: #046BD2;
-            --ast-global-color-1: #045cb5;
-            --ast-global-color-2: #111827;
-            --ast-global-color-3: #4b5563;
-            --ast-global-color-4: #f3f4f6;
-            --ast-form-input-text: #475569;
+            --primary-red: #d90429;
+            --dark-red: #800000;
+            --bg-black: #050505;
+            --card-bg: #121212;
+            --glass-white: rgba(255, 255, 255, 0.05);
+            --gold-touch: #efb810;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'IBM Plex Sans', sans-serif;
-            font-size: 16px;
-            line-height: 1.75;
-            margin: 0;
-            background-color: var(--ast-global-color-4);
-            color: var(--ast-global-color-3);
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'EB Garamond', serif;
-            font-weight: 600;
-            color: var(--ast-global-color-2);
-            line-height: 1.2;
-        }
-
-        /* تصحيح الجزء المقطوع من الكود السابق */
-        @media (max-width: 544px) {
-            h1, .entry-content h1 { font-size: 36px; }
-            h2, .entry-content h2 { font-size: 30px; }
-            .site-title { display: block; font-size: 1.2rem; }
-        }
-
-        .ast-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .ast-button, button, input[type="submit"] {
-            border-radius: 6px;
-            padding: 14px 28px;
-            background-color: var(--ast-global-color-0);
+            background-color: var(--bg-black);
             color: #ffffff;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            font-family: 'Cairo', sans-serif;
+            overflow-x: hidden;
         }
 
-        .ast-button:hover {
-            background-color: var(--ast-global-color-1);
+        /* الماركي (الشريط المتحرك) */
+        .promo-bar {
+            background: var(--primary-red);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+            overflow: hidden;
+            white-space: nowrap;
+            border-bottom: 2px solid var(--gold-touch);
         }
 
-        input[type="text"], input[type="email"], textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-bottom: 10px;
+        .promo-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
         }
 
-        /* Header Style */
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* هيدر احترافي */
         header {
-            background: #fff;
-            padding: 15px 0;
-            border-bottom: 1px solid #eaeaea;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(15px);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--glass-white);
         }
 
-        .site-identity {
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            background: linear-gradient(to left, #fff, var(--primary-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 25px;
+            font-weight: 600;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary-red);
+            transition: 0.3s;
+        }
+
+        nav a:hover::after { width: 100%; }
+
+        /* قسم الهيرو */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1559440668-968653228898?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
-            gap: 15px;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-box {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 30px;
+            border: 1px solid var(--glass-white);
+            max-width: 800px;
+        }
+
+        .hero h1 { font-size: 55px; font-weight: 900; margin-bottom: 20px; line-height: 1.3; }
+        .hero h1 span { color: var(--primary-red); text-shadow: 0 0 20px rgba(217, 4, 41, 0.5); }
+        
+        .btn-red {
+            background: var(--primary-red);
+            color: white;
+            padding: 15px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            display: inline-block;
+            transition: 0.4s;
+            box-shadow: 0 10px 30px rgba(217, 4, 41, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-red:hover { transform: scale(1.05); background: #ff0000; box-shadow: 0 15px 40px rgba(217, 4, 41, 0.6); }
+
+        /* كروت المنتجات */
+        .section-padding { padding: 100px 8%; }
+        .section-title { text-align: center; font-size: 40px; margin-bottom: 60px; font-weight: 900; }
+        .section-title span { color: var(--primary-red); }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 25px;
+            overflow: hidden;
+            border: 1px solid var(--glass-white);
+            transition: 0.4s;
+            position: relative;
+        }
+
+        .product-card:hover { border-color: var(--primary-red); transform: translateY(-10px); }
+
+        .img-container { height: 250px; overflow: hidden; position: relative; }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .product-card:hover .img-container img { transform: scale(1.1); }
+
+        .product-info { padding: 25px; text-align: center; }
+        .product-info h3 { font-size: 22px; margin-bottom: 10px; }
+        .price-tag { color: var(--gold-touch); font-weight: 700; font-size: 18px; margin-bottom: 15px; display: block; }
+
+        .watermark {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(217, 4, 41, 0.8);
+            padding: 5px 15px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* السلة العائمة */
+        .cart-section {
+            background: linear-gradient(45deg, #121212, #1a0000);
+            border-radius: 30px;
+            padding: 40px;
+            border: 1px solid var(--dark-red);
+            margin-top: 50px;
+        }
+
+        .cart-list { list-style: none; margin-bottom: 20px; }
+        .cart-list li { 
+            background: rgba(255,255,255,0.05); 
+            padding: 10px 20px; 
+            border-radius: 10px; 
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* لماذا نحن - أيقونات حمراء */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: 40px;
+            background: var(--glass-white);
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .feature-box i { font-size: 50px; color: var(--primary-red); margin-bottom: 20px; }
+        .feature-box:hover { background: var(--dark-red); }
+
+        /* فوتر */
+        footer {
+            background: #000;
+            padding: 60px 8% 20px;
+            border-top: 1px solid var(--glass-white);
+            text-align: center;
+        }
+
+        .social-icons { margin-bottom: 30px; }
+        .social-icons a { 
+            color: white; 
+            font-size: 24px; 
+            margin: 0 15px; 
+            transition: 0.3s; 
+        }
+        .social-icons a:hover { color: var(--primary-red); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 35px; }
+            nav { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="ast-container">
-            <div class="site-identity">
-                <h1 class="site-title"><a href="#">Tarh bladna</a></h1>
+<div class="promo-bar">
+    <div class="promo-content">
+        ✨ متخصصون في توريد أجود أنواع الفول السوداني للتصدير والسوق المحلي — خبرة 15 عاماً — نلتزم بالجودة والسعر العادل — 
+        ✨ متخصصون في توريد أجود أنواع الفول السوداني للتصدير والسوق المحلي — خبرة 15 عاماً — نلتزم بالجودة والسعر العادل — 
+    </div>
+</div>
+
+<header>
+    <div class="logo">طرح<span> بلدنا</span></div>
+    <nav>
+        <a href="#home">الرئيسية</a>
+        <a href="#products">المنتجات</a>
+        <a href="#why">لماذا نحن</a>
+        <a href="#contact">اتصل بنا</a>
+    </nav>
+    <a href="https://wa.me/201020508423" class="btn-red" style="padding: 10px 25px;">طلب سريع</a>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-box">
+        <h1>أجود محاصيل <span>الأرض المصرية</span> إلى مخازنكم مباشرة</h1>
+        <p>نحن في "طرح بلدنا" نؤمن أن الجودة هي مفتاح الاستمرار. نوفر الفول السوداني بكافة أنواعه وفق أعلى المعايير العالمية.</p>
+        <a href="#products" class="btn-red"><i class="fas fa-shopping-basket"></i> تصفح منتجاتنا</a>
+    </div>
+</section>
+
+<section class="section-padding" id="products">
+    <h2 class="section-title">محاصيلنا <span>المختارة</span></h2>
+    <div class="products-grid">
+        <div class="product-card">
+            <div class="watermark">الأكثر طلباً</div>
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1599591459461-9c60df392764?auto=format&fit=crop&w=500&q=80" alt="فول سوداني بقشره">
+            </div>
+            <div class="product-info">
+                <h3>فول سوداني بقشره</h3>
+                <span class="price-tag">عالي الجودة (65 - 90)</span>
+                <button class="btn-red add-to-cart" data-name="فول سوداني بقشره">أضف للسلة</button>
             </div>
         </div>
-    </header>
 
-    <main id="content" class="site-content">
-        <div class="ast-container">
-            <article class="ast-article-single">
-                <header class="entry-header">
-                    <h1 class="entry-title">مرحباً بكم في موقعنا</h1>
-                </header>
-
-                <div class="entry-content">
-                    <p>هذا النص تجريبي لعرض المحتوى بعد تصحيح أخطاء الأكواد المقطوعة. يمكنك الآن إضافة محتواك هنا.</p>
-                    <button class="ast-button">اقرأ المزيد</button>
-                </div>
-            </article>
+        <div class="product-card">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1599591459416-8c460d392764?auto=format&fit=crop&w=500&q=80" alt="فول سوداني مقشر">
+            </div>
+            <div class="product-info">
+                <h3>فول سوداني مقشر</h3>
+                <span class="price-tag">نخب أول (70 - 105)</span>
+                <button class="btn-red add-to-cart" data-name="فول سوداني مقشر">أضف للسلة</button>
+            </div>
         </div>
-    </main>
 
-    <footer style="text-align: center; padding: 20px; background: #fff; margin-top: 40px;">
-        <p>© 2026 Tarh bladna - جميع الحقوق محفوظة</p>
-    </footer>
+        <div class="product-card">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1534324403061-002f2323e0ec?auto=format&fit=crop&w=500&q=80" alt="فول سوداني حلواني">
+            </div>
+            <div class="product-info">
+                <h3>فول سوداني حلواني</h3>
+                <span class="price-tag">تصنيع ممتاز (80 - 95)</span>
+                <button class="btn-red add-to-cart" data-name="فول سوداني حلواني">أضف للسلة</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-section">
+        <h3 style="margin-bottom: 20px;"><i class="fas fa-shopping-cart" style="color: var(--primary-red);"></i> طلبية جديدة</h3>
+        <ul class="cart-list" id="cart-items">
+            </ul>
+        <button class="btn-red" id="whatsapp-btn" style="width: 100%;"><i class="fab fa-whatsapp"></i> إتمام الطلب عبر واتساب</button>
+    </div>
+</section>
+
+<section class="section-padding" id="why" style="background: #080808;">
+    <h2 class="section-title">لماذا <span>طرح بلدنا</span>؟</h2>
+    <div class="features-grid">
+        <div class="feature-box">
+            <i class="fas fa-award"></i>
+            <h3>15 عاماً خبرة</h3>
+            <p>تاريخ طويل من الثقة في السوق المصري والدولي.</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-microscope"></i>
+            <h3>فرز آلي وبشري</h3>
+            <p>نضمن خلو المحصول من الشوائب والعيوب تماماً.</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-truck-fast"></i>
+            <h3>التزام توريد</h3>
+            <p>مواعيدك مقدسة لدينا، نصلك أينما كنت وفي الموعد.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding" id="contact">
+    <div style="background: var(--card-bg); padding: 50px; border-radius: 40px; text-align: center; border: 1px solid var(--glass-white);">
+        <h2 class="section-title">تواصل مع <span>الإدارة</span></h2>
+        <div style="font-size: 20px; line-height: 2.5;">
+            <p><i class="fas fa-map-marker-alt" style="color: var(--primary-red);"></i> أبورواش – الجيزة</p>
+            <p><i class="fas fa-phone" style="color: var(--primary-red);"></i> 01126773698 | 01020508423</p>
+            <p><i class="fas fa-envelope" style="color: var(--primary-red);"></i> tarhbladna@gmail.com</p>
+        </div>
+        <div class="social-icons" style="margin-top: 30px;">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/201020508423"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="logo" style="margin-bottom: 20px;">طرح<span> بلدنا</span></div>
+    <p>© 2026 جميع الحقوق محفوظة لشركة طرح بلدنا للمحاصيل الزراعية</p>
+    <p style="font-size: 12px; margin-top: 10px; color: #444;">صنع بكل إتقان ليعكس جودة محاصيلنا</p>
+</footer>
+
+<script>
+    let cart = [];
+    const cartItemsElement = document.getElementById('cart-items');
+
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', () => {
+            const productName = button.getAttribute('data-name');
+            cart.push(productName);
+            updateCart();
+            
+            // تأثير بصري بسيط عند الإضافة
+            button.innerText = "تمت الإضافة ✓";
+            button.style.background = "#28a745";
+            setTimeout(() => {
+                button.innerText = "أضف للسلة";
+                button.style.background = "var(--primary-red)";
+            }, 1000);
+        });
+    });
+
+    function updateCart() {
+        cartItemsElement.innerHTML = '';
+        cart.forEach((item, index) => {
+            const li = document.createElement('li');
+            li.innerHTML = `<span>${item}</span> <i class="fas fa-times" onclick="removeItem(${index})" style="color:red; cursor:pointer;"></i>`;
+            cartItemsElement.appendChild(li);
+        });
+    }
+
+    function removeItem(index) {
+        cart.splice(index, 1);
+        updateCart();
+    }
+
+    document.getElementById('whatsapp-btn').addEventListener('click', () => {
+        if (cart.length === 0) {
+            alert('السلة فارغة، فضلاً اختر بعض المنتجات');
+            return;
+        }
+        const message = encodeURIComponent(`مرحباً طرح بلدنا، أرغب في طلب:\n- ${cart.join('\n- ')}`);
+        window.open(`https://wa.me/201126773698?text=${message}`, '_blank');
+    });
+</script>
 
 </body>
 </html>
