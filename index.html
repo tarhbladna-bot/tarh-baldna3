@@ -19,12 +19,7 @@
             --whatsapp-green: #25d366;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg-black);
@@ -49,6 +44,7 @@
             display: flex; align-items: center; justify-content: center;
             color: white; font-size: 25px; text-decoration: none;
             box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            transition: 0.3s;
             animation: pulse-animation 2s infinite;
         }
 
@@ -61,7 +57,7 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
         }
 
-        /* شريط العروض المتحرك */
+        /* الماركي */
         .promo-bar {
             background: var(--primary-red);
             color: white; padding: 8px 0; font-size: 14px;
@@ -69,21 +65,14 @@
             border-bottom: 2px solid var(--gold-touch);
         }
 
-        .promo-content {
-            display: inline-block;
-            animation: marquee 25s linear infinite;
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
+        .promo-content { display: inline-block; animation: marquee 20s linear infinite; }
+        @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
         /* الهيدر */
         header {
             background: rgba(5, 5, 5, 0.9);
             backdrop-filter: blur(15px);
-            padding: 15px 5%;
+            padding: 20px 5%;
             display: flex; justify-content: space-between; align-items: center;
             position: sticky; top: 0; z-index: 1000;
             border-bottom: 1px solid var(--glass-white);
@@ -97,41 +86,30 @@
 
         nav a { color: #fff; text-decoration: none; margin-right: 25px; font-weight: 600; }
 
-        /* قسم البانر العلوي - تم توضيح الصورة هنا */
+        /* بانر أعلى الصفحة - تم توضيح الصورة هنا */
         .hero {
-            height: 75vh;
-            background-image: url('images/main-banner.jpg'); /* صورتك الأصلية بدون ظل */
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            border-bottom: 4px solid var(--primary-red);
+            height: 70vh;
+            background: url('images/main-banner.jpg');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center; text-align: center;
+            border-bottom: 3px solid var(--primary-red);
         }
 
         .hero-box {
-            background: rgba(0, 0, 0, 0.65); /* تظليل خلف النص فقط ليظهر بوضوح */
-            backdrop-filter: blur(5px);
-            padding: 40px;
-            border-radius: 25px;
-            border: 1px solid rgba(255,255,255,0.1);
-            max-width: 800px;
-            margin: 0 20px;
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(8px);
+            padding: 40px; border-radius: 20px; border: 1px solid var(--glass-white);
+            max-width: 850px; margin: 0 20px;
         }
 
-        .hero h1 { font-size: 48px; font-weight: 900; margin-bottom: 15px; color: #fff; }
+        .hero h1 { font-size: 45px; font-weight: 900; margin-bottom: 15px; }
         .hero h1 span { color: var(--primary-red); }
-        .hero p { font-size: 19px; margin-bottom: 25px; color: #eee; }
 
         .btn-red {
             background: var(--primary-red); color: white;
-            padding: 14px 45px; border-radius: 50px;
+            padding: 12px 40px; border-radius: 50px;
             text-decoration: none; font-weight: 900;
-            display: inline-block; transition: 0.4s;
-            border: none; cursor: pointer;
+            display: inline-block; transition: 0.4s; border: none; cursor: pointer;
         }
-        .btn-red:hover { background: var(--dark-red); transform: translateY(-3px); }
 
         /* قسم المنتجات */
         .section-padding { padding: 80px 8%; }
@@ -139,64 +117,47 @@
         .section-title span { color: var(--primary-red); }
 
         .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
         }
 
         .product-card {
             background: var(--card-bg); border-radius: 25px; overflow: hidden;
             border: 1px solid var(--glass-white); transition: 0.4s; position: relative;
         }
-        .product-card:hover { transform: translateY(-10px); border-color: var(--primary-red); }
 
-        .img-container { height: 260px; overflow: hidden; background: #1a1a1a; }
-        .img-container img { width: 100%; height: 100%; object-fit: cover; }
+        .img-container { height: 250px; overflow: hidden; background: #222; }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         
-        .thumb-gallery {
-            display: flex; justify-content: center; gap: 10px; padding: 12px;
-            background: rgba(0,0,0,0.2);
-        }
+        .thumb-gallery { display: flex; justify-content: center; gap: 8px; padding: 10px; background: rgba(0,0,0,0.3); }
         .thumb-gallery img {
             width: 55px; height: 45px; object-fit: cover;
-            border-radius: 8px; cursor: pointer; border: 1.5px solid transparent;
-            transition: 0.3s;
+            border-radius: 5px; cursor: pointer; border: 1px solid transparent;
         }
         .thumb-gallery img:hover { border-color: var(--primary-red); }
 
-        .product-info { padding: 15px 20px 25px; text-align: center; }
-        .price-tag { color: var(--gold-touch); font-weight: 700; font-size: 19px; margin-bottom: 15px; display: block; }
+        .product-info { padding: 15px 25px 25px; text-align: center; }
+        .price-tag { color: var(--gold-touch); font-weight: 700; font-size: 17px; margin-bottom: 15px; display: block; }
 
         .watermark {
-            position: absolute; top: 15px; left: 15px;
-            background: var(--primary-red); color: white;
-            padding: 5px 15px; border-radius: 8px;
-            font-size: 13px; font-weight: bold; z-index: 10;
+            position: absolute; top: 10px; left: 10px;
+            background: var(--primary-red); padding: 5px 15px;
+            border-radius: 10px; font-size: 12px; font-weight: bold; z-index: 10;
         }
 
         /* السلة */
         .cart-section {
-            background: linear-gradient(135deg, #121212 0%, #200000 100%);
-            border-radius: 30px; padding: 40px; border: 1px solid var(--dark-red);
-            margin-top: 60px; box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            background: linear-gradient(45deg, #121212, #1a0000);
+            border-radius: 30px; padding: 40px; border: 1px solid var(--dark-red); margin-top: 50px;
         }
         .cart-list li { 
-            background: rgba(255,255,255,0.07); padding: 15px 20px; 
-            border-radius: 12px; margin-bottom: 12px; display: flex; justify-content: space-between;
-            align-items: center; border: 1px solid rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.05); padding: 10px 20px; 
+            border-radius: 10px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;
         }
 
-        footer { background: #000; padding: 50px 8% 30px; text-align: center; border-top: 1px solid var(--glass-white); }
-        .social-icons { margin-bottom: 20px; }
-        .social-icons a { color: white; font-size: 26px; margin: 0 15px; transition: 0.3s; }
-        .social-icons a:hover { color: var(--primary-red); }
+        footer { background: #000; padding: 60px 8% 20px; text-align: center; border-top: 1px solid var(--glass-white); }
+        .social-icons a { color: white; font-size: 24px; margin: 0 15px; }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 32px; }
-            .hero p { font-size: 16px; }
-            nav { display: none; }
-            .section-padding { padding: 60px 5%; }
-        }
+        @media (max-width: 768px) { .hero { height: 60vh; } .hero h1 { font-size: 28px; } nav { display: none; } }
     </style>
 </head>
 <body>
@@ -207,9 +168,7 @@
 </div>
 
 <div class="promo-bar">
-    <div class="promo-content">
-        ✨ طرح بلدنا: جودة عالمية في الفول السوداني — تصدير وسوق محلي — فرز آلي ونقاوة 100% — خبرة تمتد لأكثر من 15 عاماً — 
-    </div>
+    <div class="promo-content">✨ متخصصون في توريد أجود أنواع الفول السوداني — خبرة 15 عاماً — نلتزم بالجودة والسعر العادل — فرز آلي ونقاوة 100% — </div>
 </div>
 
 <header>
@@ -219,24 +178,23 @@
         <a href="#products">المنتجات</a>
         <a href="#contact">اتصل بنا</a>
     </nav>
-    <a href="https://wa.me/201020508423" class="btn-red" style="padding: 10px 20px; font-size: 14px;">اطلب الآن</a>
+    <a href="https://wa.me/201020508423" class="btn-red" style="padding: 10px 25px;">طلب سريع</a>
 </header>
 
 <section class="hero" id="home">
     <div class="hero-box">
-        <h1>أجود محاصيل <span>الأرض المصرية</span> إلى مخازنكم</h1>
-        <p>متخصصون في توريد وتصدير أرقى أنواع الفول السوداني المصري بمختلف أحجامه وأنواعه.</p>
-        <a href="#products" class="btn-red">استكشف منتجاتنا</a>
+        <h1>أجود محاصيل <span>الأرض المصرية</span> إلى مخازنكم مباشرة</h1>
+        <p>نحن في "طرح بلدنا" نؤمن أن الجودة هي مفتاح الاستمرار والتميز في سوق المحاصيل.</p>
+        <a href="#products" class="btn-red">تصفح منتجاتنا</a>
     </div>
 </section>
 
 <section class="section-padding" id="products">
-    <h2 class="section-title">قائمة <span>محاصيلنا</span></h2>
-    
+    <h2 class="section-title">منتجاتنا <span>المتميزة</span></h2>
     <div class="products-grid">
         
         <div class="product-card">
-            <div class="watermark">الأعلى مبيعاً</div>
+            <div class="watermark">الأكثر طلباً</div>
             <div class="img-container"><img src="images/p1-1.jpg" id="mainImg1"></div>
             <div class="thumb-gallery">
                 <img src="images/p1-1.jpg" onclick="changeImage('mainImg1', this.src)">
@@ -245,7 +203,7 @@
             </div>
             <div class="product-info">
                 <h3>فول سوداني بقشره</h3>
-                <span class="price-tag">مقاسات (65 - 90)</span>
+                <span class="price-tag">عالي الجودة (65 - 90)</span>
                 <button class="btn-red add-to-cart" data-name="فول سوداني بقشره">أضف للسلة</button>
             </div>
         </div>
@@ -259,7 +217,7 @@
             </div>
             <div class="product-info">
                 <h3>فول سوداني مقشر</h3>
-                <span class="price-tag">مقاسات (70 - 105)</span>
+                <span class="price-tag">نخب أول (70 - 105)</span>
                 <button class="btn-red add-to-cart" data-name="فول سوداني مقشر">أضف للسلة</button>
             </div>
         </div>
@@ -273,7 +231,7 @@
             </div>
             <div class="product-info">
                 <h3>فول سوداني حلواني</h3>
-                <span class="price-tag">تصنيع فاخر (80 - 95)</span>
+                <span class="price-tag">تصنيع ممتاز (80 - 95)</span>
                 <button class="btn-red add-to-cart" data-name="فول سوداني حلواني">أضف للسلة</button>
             </div>
         </div>
@@ -287,32 +245,55 @@
             </div>
             <div class="product-info">
                 <h3>فول سوداني مجروش</h3>
-                <span class="price-tag">فرز آلي نقي</span>
+                <span class="price-tag">فرز نقي ناعم/خشن</span>
                 <button class="btn-red add-to-cart" data-name="فول سوداني مجروش">أضف للسلة</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="img-container"><img src="images/p5-1.jpg" id="mainImg5"></div>
+            <div class="thumb-gallery">
+                <img src="images/p5-1.jpg" onclick="changeImage('mainImg5', this.src)">
+                <img src="images/p5-2.jpg" onclick="changeImage('mainImg5', this.src)">
+                <img src="images/p5-3.jpg" onclick="changeImage('mainImg5', this.src)">
+            </div>
+            <div class="product-info">
+                <h3>فول سوداني للطعوم والشوكولاتة</h3>
+                <span class="price-tag">تحميص وتجهيز خاص</span>
+                <button class="btn-red add-to-cart" data-name="فول سوداني للطعوم والشوكولاتة">أضف للسلة</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="img-container"><img src="images/p6-1.jpg" id="mainImg6"></div>
+            <div class="thumb-gallery">
+                <img src="images/p6-1.jpg" onclick="changeImage('mainImg6', this.src)">
+                <img src="images/p6-2.jpg" onclick="changeImage('mainImg6', this.src)">
+                <img src="images/p6-3.jpg" onclick="changeImage('mainImg6', this.src)">
+            </div>
+            <div class="product-info">
+                <h3>فول سوداني لزبدة الفول</h3>
+                <span class="price-tag">نسبة زيوت عالية ومثالية</span>
+                <button class="btn-red add-to-cart" data-name="فول لعمل زبدة الفول السوداني">أضف للسلة</button>
             </div>
         </div>
 
     </div>
 
     <div class="cart-section">
-        <h3 style="margin-bottom: 20px;"><i class="fas fa-shopping-basket" style="color:var(--primary-red)"></i> قائمة طلباتك:</h3>
+        <h3><i class="fas fa-shopping-cart"></i> قائمة طلباتك</h3>
         <ul class="cart-list" id="cart-items">
-            <p id="empty-msg" style="opacity: 0.5; text-align: center;">السلة فارغة حالياً..</p>
+            <p style="text-align: center; opacity: 0.5;" id="empty-msg">السلة فارغة..</p>
         </ul>
-        <button class="btn-red" id="whatsapp-btn" style="width: 100%; margin-top: 20px; font-size: 18px;">
-            <i class="fab fa-whatsapp"></i> إرسال الطلب عبر الواتساب
-        </button>
+        <button class="btn-red" id="whatsapp-btn" style="width: 100%; margin-top: 15px;">إرسال الطلب عبر واتساب</button>
     </div>
 </section>
 
-<section class="section-padding" id="contact" style="background: #080808;">
-    <div style="background: var(--card-bg); padding: 60px 20px; border-radius: 40px; text-align: center; border: 1px solid var(--glass-white); max-width: 900px; margin: 0 auto;">
-        <h2 class="section-title" style="margin-bottom: 30px;">تواصل <span>مباشر</span></h2>
-        <div style="font-size: 20px; line-height: 2;">
-            <p><i class="fas fa-phone-alt" style="color:var(--primary-red)"></i> الإدارة: 01126773698</p>
-            <p><i class="fab fa-whatsapp" style="color:var(--whatsapp-green)"></i> مبيعات: 01020508423</p>
-        </div>
-        <div class="social-icons" style="margin-top: 40px;">
+<section class="section-padding" id="contact">
+    <div style="background: var(--card-bg); padding: 50px; border-radius: 40px; text-align: center; border: 1px solid var(--glass-white);">
+        <h2 class="section-title">تواصل مع <span>الإدارة</span></h2>
+        <p style="font-size: 20px; margin-bottom: 20px;"><i class="fas fa-phone"></i> 01126773698 | 01020508423</p>
+        <div class="social-icons">
             <a href="https://www.facebook.com/TarhBladna" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://wa.me/201020508423" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </div>
@@ -320,17 +301,13 @@
 </section>
 
 <footer>
-    <div class="logo" style="margin-bottom: 15px;">طرح<span> بلدنا</span></div>
+    <div class="logo">طرح<span> بلدنا</span></div>
     <p>© 2026 جميع الحقوق محفوظة لشركة طرح بلدنا للمحاصيل الزراعية</p>
 </footer>
 
 <script>
-    // وظيفة تغيير الصورة الرئيسية عند الضغط على المصغرات
-    function changeImage(targetId, newSrc) {
-        document.getElementById(targetId).src = newSrc;
-    }
+    function changeImage(targetId, newSrc) { document.getElementById(targetId).src = newSrc; }
     
-    // نظام السلة والواتساب
     let cart = [];
     const cartItemsElement = document.getElementById('cart-items');
     const emptyMsg = document.getElementById('empty-msg');
@@ -340,49 +317,32 @@
             const productName = button.getAttribute('data-name');
             cart.push(productName);
             updateCart();
-            
-            // تأثير بصري عند الإضافة
-            const originalText = button.innerText;
             button.innerText = "تمت الإضافة ✓";
-            button.style.background = "#25d366";
-            setTimeout(() => { 
-                button.innerText = originalText; 
-                button.style.background = "#d90429";
-            }, 800);
+            setTimeout(() => { button.innerText = "أضف للسلة"; }, 1000);
         });
     });
 
     function updateCart() {
-        if (cart.length > 0) { emptyMsg.style.display = 'none'; }
+        if(cart.length > 0) emptyMsg.style.display = 'none';
         cartItemsElement.innerHTML = '';
         cart.forEach((item, index) => {
             const li = document.createElement('li');
-            li.innerHTML = `
-                <span><b>${index + 1}.</b> ${item}</span>
-                <i class="fas fa-trash-alt" onclick="removeItem(${index})" style="color:var(--primary-red); cursor:pointer;"></i>
-            `;
+            li.innerHTML = `<span>${item}</span> <i class="fas fa-trash" onclick="removeItem(${index})" style="color:var(--primary-red); cursor:pointer;"></i>`;
             cartItemsElement.appendChild(li);
         });
     }
 
     function removeItem(index) {
         cart.splice(index, 1);
-        if (cart.length === 0) {
-            cartItemsElement.innerHTML = '<p id="empty-msg" style="opacity: 0.5; text-align: center;">السلة فارغة حالياً..</p>';
-        } else {
-            updateCart();
-        }
+        if(cart.length === 0) emptyMsg.style.display = 'block';
+        updateCart();
     }
 
     document.getElementById('whatsapp-btn').addEventListener('click', () => {
-        if (cart.length === 0) {
-            alert('من فضلك أضف منتجات إلى السلة أولاً');
-            return;
-        }
-        const message = encodeURIComponent(`مرحباً شركة طرح بلدنا، أرغب في الاستفسار عن طلبية:\n\n${cart.map((item, i) => `${i+1}- ${item}`).join('\n')}\n\nيرجى التواصل معي للتفاصيل.`);
+        if (cart.length === 0) { alert('السلة فارغة'); return; }
+        const message = encodeURIComponent(`مرحباً طرح بلدنا، أرغب في الاستفسار وطلب المنتجات التالية:\n\n- ${cart.join('\n- ')}`);
         window.open(`https://wa.me/201126773698?text=${message}`, '_blank');
     });
 </script>
-
 </body>
 </html>
